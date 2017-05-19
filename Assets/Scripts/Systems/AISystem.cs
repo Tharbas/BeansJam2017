@@ -25,7 +25,7 @@ public class AISystem : MonoBehaviour {
 	void Update () {
 	    if (Input.GetMouseButtonUp(0))
         {
-            npcs[0].GetComponent<NavMeshAgent>().Move(new Vector3(0.1f, 0, 0.1f));
+            npcs[0].GetComponent<NavMeshAgent>().Move(new Vector3(1f, 0, 1f));
             
         }
 	}
