@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 33316923418377022}
   - component: {fileID: 65137569179760558}
   - component: {fileID: 23164638173115650}
+  - component: {fileID: 114996733037015734}
   m_Layer: 0
   m_Name: Player_Mafioso
   m_TagString: Untagged
@@ -124,6 +125,31 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114996733037015734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1782527921994180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a040951c0c97069488f1a35c3f11f416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerType: 1
+  movementspeed: 100
+  verticalAxisInputKeyboard: Vertical
+  horizontalAxisInputKeyboard: Horizontal
+  verticalAxisInputController1: Vertical_Controller1
+  horizontalAxisInputController1: Horizontal_Controller1
+  verticalAxisInputController2: Vertical_Controller2
+  horizontalAxisInputController2: Horizontal_Controller2
+  prefKeyCop: Controls_Cop
+  prefKeyMafioso: Controls_Mafioso
+  prefValueKeyboard: Keyboard
+  prefValueController1: Controller1
+  prefValueController2: Controller2
+  prefValueDelimiter: 124
 --- !u!195 &195667965636767756
 NavMeshAgent:
   m_ObjectHideFlags: 1

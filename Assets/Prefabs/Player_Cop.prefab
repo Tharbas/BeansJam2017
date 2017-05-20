@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1782527921994180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -36.74, y: 0.3, z: 0}
+  m_LocalPosition: {x: -42.1, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4628055529386468}
@@ -137,9 +137,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a040951c0c97069488f1a35c3f11f416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerType: 0
   movementspeed: 100
-  verticalAxisInput: Vertical
-  horizontalAxisInput: Horizontal
+  verticalAxisInputKeyboard: Vertical
+  horizontalAxisInputKeyboard: Horizontal
+  verticalAxisInputController1: Vertical_Controller1
+  horizontalAxisInputController1: Horizontal_Controller1
+  verticalAxisInputController2: Vertical_Controller2
+  horizontalAxisInputController2: Horizontal_Controller2
+  prefKeyCop: Controls_Cop
+  prefKeyMafioso: Controls_Mafioso
+  prefValueKeyboard: Keyboard
+  prefValueController1: Controller1
+  prefValueController2: Controller2
+  prefValueDelimiter: 124
 --- !u!114 &114953462533098770
 MonoBehaviour:
   m_ObjectHideFlags: 1

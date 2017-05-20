@@ -57,7 +57,7 @@ public class MainMenuGuiController : MonoBehaviour
     private string prefValueController2;
 
     [SerializeField]
-    private string prefValueDelimiter;
+    private char prefValueDelimiter;
 
 
     public void Start ()

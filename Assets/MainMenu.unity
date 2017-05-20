@@ -1553,7 +1553,7 @@ MonoBehaviour:
   prefValueKeyboard: Keyboard
   prefValueController1: Controller1
   prefValueController2: Controller2
-  prefValueDelimiter: '|'
+  prefValueDelimiter: 124
 --- !u!4 &1021327832
 Transform:
   m_ObjectHideFlags: 0
