@@ -1091,7 +1091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0343311194614dd4692775408e2c0f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundTime: 5
+  roundTime: 120
   MaxRoundTime: 0
   CurrentGameState: 0
   TimeLabel: {fileID: 290688899}
