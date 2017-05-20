@@ -30,8 +30,6 @@ public class AISpawner : MonoBehaviour {
                 GameObject spawnedNpc = Instantiate(NpcPrefab, NpcSceneRoot.transform, true);
                 spawnedNpc.transform.SetPositionAndRotation(hit.position, Quaternion.identity);
                 spawnedNpc.name = "NPC_" + i;
-                SpriteRenderer renderer = spawnedNpc.GetComponentInChildren<SpriteRenderer>();
-                renderer.color = new Color(Random.Range(0.2f, 1f), Random.Range(0.2f, 1f), Random.Range(0.2f, 1f));
                 aiSys.AddNpc(spawnedNpc.GetComponent<AIEntity>());
             }
         }
