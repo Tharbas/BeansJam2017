@@ -136,6 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3fb427028e62d40bef10f35251e5b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinIdleTime: 0
+  MaxIdleTime: 2
 --- !u!195 &195217078384874768
 NavMeshAgent:
   m_ObjectHideFlags: 1
