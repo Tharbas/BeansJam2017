@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 195217078384874768}
   - component: {fileID: 114058556214396928}
   - component: {fileID: 114987893637268990}
+  - component: {fileID: 114946246938411988}
   m_Layer: 0
   m_Name: TestNpc
   m_TagString: Untagged
@@ -161,6 +162,17 @@ MonoBehaviour:
   MaxIdleTime: 10
   ActionTimer: 0
   RandomMovementPercentage: 0.01
+--- !u!114 &114946246938411988
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1514359761835162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b2d58e3dcbd124583ac740c745525f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114987893637268990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,6 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ce0e6e7f3f04e40b57f04ea6169f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HighlightDuration: 0
 --- !u!195 &195217078384874768
 NavMeshAgent:
   m_ObjectHideFlags: 1
