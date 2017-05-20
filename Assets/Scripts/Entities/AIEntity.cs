@@ -5,14 +5,15 @@ using UnityEngine.AI;
 
 public class AIEntity : MonoBehaviour {
 
+    public WaypointComponent CurrentTarget;
+    public AIStates CurrentSate;
+    public float MinIdleTime;
+    public float MaxIdleTime;
+
+    public float IdleTime;
 
     // Use this for initialization
 	void Start () {
-
-    }
-	
-	// Update is called once per frame
-	void Update () {
-
-    }
+        CurrentSate = AIStates.Idle;
+    }	
 }

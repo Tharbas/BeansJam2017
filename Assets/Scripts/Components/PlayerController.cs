@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour {
 		float movementHorizontal = Input.GetAxis (horizontalAxisInput);
 		float movementVertical = Input.GetAxis (verticalAxisInput); 
 
-		Vector3 movement = new Vector3 (movementHorizontal, movementVertical, 0);
+		Vector3 movement = new Vector3 (movementHorizontal, 0,movementVertical);
 
 		//rb3d.AddForce (movement * movementspeed, ForceMode.Force);
 
