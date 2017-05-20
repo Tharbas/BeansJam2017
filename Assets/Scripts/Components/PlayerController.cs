@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour {
         else
         {
             Vector3 temp = new Vector3(movementVector.x, -movementVector.z, movementVector.y); //Adjust the numbers to the correct world space values again
-
+            
             CurrentMovementVector = temp;
 
             float angle = Vector3.Angle(Camera.main.transform.forward, temp);
