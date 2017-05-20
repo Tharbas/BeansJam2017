@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4628055529386468}
   - component: {fileID: 212003411469854364}
+  - component: {fileID: 95875918156024074}
   m_Layer: 0
   m_Name: PlayerSprite
   m_TagString: Untagged
@@ -41,6 +42,7 @@ GameObject:
   - component: {fileID: 23164638173115650}
   - component: {fileID: 114953462533098770}
   - component: {fileID: 114295400835342404}
+  - component: {fileID: 114701191686318176}
   m_Layer: 0
   m_Name: Player_Cop
   m_TagString: Untagged
@@ -126,6 +128,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &95875918156024074
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1661224149617604}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114295400835342404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -147,10 +166,19 @@ MonoBehaviour:
   horizontalAxisInputController2: Horizontal_Controller2
   prefKeyCop: Controls_Cop
   prefKeyMafioso: Controls_Mafioso
-  prefValueKeyboard: Keyboard
-  prefValueController1: Controller1
-  prefValueController2: Controller2
   prefValueDelimiter: 124
+--- !u!114 &114701191686318176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1782527921994180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18fa3b8285b22bb4db4ccee9aca1eb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScareRadius: 50
 --- !u!114 &114953462533098770
 MonoBehaviour:
   m_ObjectHideFlags: 1
