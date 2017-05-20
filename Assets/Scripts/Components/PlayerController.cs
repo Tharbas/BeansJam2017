@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour {
                 break;
             case PlayerTypes.Mafioso:
                 this.loadControlSettings(this.prefKeyMafioso);
+                this.GetComponentInChildren<Animator>().runtimeAnimatorController = FindObjectOfType<AISpawner>().GetRandomAnimatorController();
                 break;
         }
 

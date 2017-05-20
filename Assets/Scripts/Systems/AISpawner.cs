@@ -37,4 +37,10 @@ public class AISpawner : MonoBehaviour {
             }
         }
 	}
+
+    public RuntimeAnimatorController GetRandomAnimatorController()
+    {
+        GameObject NpcPrefab = this.citizenPrefabs[UnityEngine.Random.Range(0, this.citizenPrefabs.Length)];
+        return NpcPrefab.GetComponentInChildren<Animator>().runtimeAnimatorController;
+    }
 }
