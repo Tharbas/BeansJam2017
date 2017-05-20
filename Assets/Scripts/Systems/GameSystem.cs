@@ -79,7 +79,7 @@ public class GameSystem : MonoBehaviour
                 }
                 else
                 {
-                    shop.CurrentValue += shop.ValueIncreasePerUpdate;
+                    shop.CurrentValue += (int)UnityEngine.Random.Range(shop.ValueIncreasePerUpdate * 0.25f, shop.ValueIncreasePerUpdate * 1.25f);
                 }
             }
 
