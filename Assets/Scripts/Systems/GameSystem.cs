@@ -25,6 +25,7 @@ public class GameSystem : MonoBehaviour
     public Text TimeLabel;
 
     private List<ShopHotspotComponent> shops;
+    private MoneySafeComponent safe;
 
     public PlayerController Mafioso;
 
@@ -34,6 +35,7 @@ public class GameSystem : MonoBehaviour
         CurrentGameState = GameState.WaitingToStart;
         shops = new List<ShopHotspotComponent>();
         shops.AddRange(FindObjectsOfType<ShopHotspotComponent>());
+        safe = FindObjectOfType<MoneySafeComponent>();
     }
 
     // Update is called once per frame
@@ -109,6 +111,28 @@ public class GameSystem : MonoBehaviour
             if (text)
             { 
                 text.text = shop.CurrentValue + " $";
+            }
+        }
+        if (Mafioso.WantToCollect)
+        {
+            if (Vector3.Distance(safe.transform.position, Mafioso.gameObject.transform.position) < 15)
+            {
+                Vector3 playerPos = Mafioso.gameObject.transform.position;
+                Vector3 lookDir = safe.transform.position - playerPos;
+                lookDir.Normalize();
+                playerPos += (lookDir * 2);
+
+                RaycastHit hitinfo;
+                if (Physics.Linecast(safe.transform.position, playerPos, out hitinfo))
+                {
+                    //Debug.Log("Blocked! by " + hitinfo.transform.gameObject.name);
+                }
+                else
+                {
+                    Mafioso.WantToCollect = false;
+                    safe.SavedMoney += Mafioso.Score;
+                    Mafioso.Score = 0;
+                }
             }
         }
     }

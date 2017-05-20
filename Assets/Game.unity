@@ -11373,6 +11373,7 @@ GameObject:
   - component: {fileID: 1665010379}
   - component: {fileID: 1665010378}
   - component: {fileID: 1665010377}
+  - component: {fileID: 1665010381}
   m_Layer: 0
   m_Name: wp_lander
   m_TagString: Untagged
@@ -11455,6 +11456,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1665010375}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1665010381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1665010375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d30832e48da8b44b07497941420039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SavedMoney: 0
 --- !u!1 &1682959886
 GameObject:
   m_ObjectHideFlags: 0
