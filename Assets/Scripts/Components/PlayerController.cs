@@ -49,6 +49,10 @@ public class PlayerController : MonoBehaviour {
     private bool isControledController1 = false;
     private bool isControledController2 = false;
 
+    public bool IsControledKeyboard { get { return this.isControledKeyboard; } }
+    public bool IsControledController1 { get { return this.isControledController1; } }
+    public bool IsControledController2 { get { return this.isControledController2; } }
+
     public void Start ()
     {
         switch (this.playerType)
