@@ -5,13 +5,13 @@ using UnityEngine.AI;
 
 public class AIEntity : MonoBehaviour {
 
-    public WaypointComponent CurrentTarget;
+    public Vector3 CurrentTarget;
     public AIStates CurrentSate;
 
     public float MinIdleTime;
     public float MaxIdleTime;
 
-    public float IdleTime;
+    public float ActionTimer;
 
     public float RandomMovementPercentage;
 
