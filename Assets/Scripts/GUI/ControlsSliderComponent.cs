@@ -12,6 +12,9 @@ public class ControlsSliderComponent : MonoBehaviour
     }
 
     [SerializeField]
+    private MainMenuGuiController guiController;
+
+    [SerializeField]
     private Transform positionLeft;
 
     [SerializeField]
@@ -92,7 +95,7 @@ public class ControlsSliderComponent : MonoBehaviour
 
         this.currentPosition = newPosition;
         this.cooldownFramesCounter = 0;
-        GuiController.Instance.SetControlsPlayerPref();
+        this.guiController.SetControlsPlayerPref();
     }
 
 }

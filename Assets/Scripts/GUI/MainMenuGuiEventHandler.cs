@@ -6,29 +6,69 @@ using UnityEngine.EventSystems;
 
 public class MainMenuGuiEventHandler : MonoBehaviour, IPointerClickHandler
 {
+    [SerializeField]
+    private MainMenuGuiController guiController;
+
     public void OnPointerClick(PointerEventData eventData)
     {
         switch (eventData.pointerPress.gameObject.name)
         {
             case "Button_StartGame":
-                GuiController.Instance.HideWindow(MainMenuGuiController.WindowTypes.MainMenu);
-                GuiController.Instance.ShowWindow(MainMenuGuiController.WindowTypes.ChooseControls);
+                this.guiController.HideWindow(MainMenuGuiController.WindowTypes.MainMenu);
+                this.guiController.ShowWindow(MainMenuGuiController.WindowTypes.ChooseControls);
                 break;
             case "Button_Instructions":
-                GuiController.Instance.HideWindow(MainMenuGuiController.WindowTypes.MainMenu);
-                GuiController.Instance.ShowWindow(MainMenuGuiController.WindowTypes.Instructions);
+                this.guiController.HideWindow(MainMenuGuiController.WindowTypes.MainMenu);
+                this.guiController.ShowWindow(MainMenuGuiController.WindowTypes.Instructions);
+                this.guiController.ShowWindow(MainMenuGuiController.WindowTypes.InstructionsGeneric);
                 break;
             case "Button_Instructions_Back":
-                GuiController.Instance.HideWindow(MainMenuGuiController.WindowTypes.Instructions);
-                GuiController.Instance.ShowWindow(MainMenuGuiController.WindowTypes.MainMenu);
+                this.guiController.HideWindow(MainMenuGuiController.WindowTypes.Instructions);
+                this.guiController.HideWindow(MainMenuGuiController.WindowTypes.InstructionsGeneric);
+                this.guiController.HideWindow(MainMenuGuiController.WindowTypes.InstructionsCop);
+                this.guiController.HideWindow(MainMenuGuiController.WindowTypes.InstructionsMafioso);
+                this.guiController.ShowWindow(MainMenuGuiController.WindowTypes.MainMenu);
+                break;
+            case "Button_Instructions_Generic":
+                this.guiController.HideWindow(MainMenuGuiController.WindowTypes.InstructionsCop);
+                this.guiController.HideWindow(MainMenuGuiController.WindowTypes.InstructionsMafioso);
+                this.guiController.ShowWindow(MainMenuGuiController.WindowTypes.InstructionsGeneric);
+                break;
+            case "Button_Instructions_Cop":
+                this.guiController.HideWindow(MainMenuGuiController.WindowTypes.InstructionsGeneric);
+                this.guiController.HideWindow(MainMenuGuiController.WindowTypes.InstructionsMafioso);
+                this.guiController.ShowWindow(MainMenuGuiController.WindowTypes.InstructionsCop);
+                break;
+            case "Button_Instructions_Mafioso":
+                this.guiController.HideWindow(MainMenuGuiController.WindowTypes.InstructionsGeneric);
+                this.guiController.HideWindow(MainMenuGuiController.WindowTypes.InstructionsCop);
+                this.guiController.ShowWindow(MainMenuGuiController.WindowTypes.InstructionsMafioso);
                 break;
             case "Button_ChooseControls_Back":
-                GuiController.Instance.HideWindow(MainMenuGuiController.WindowTypes.ChooseControls);
-                GuiController.Instance.ShowWindow(MainMenuGuiController.WindowTypes.MainMenu);
+                this.guiController.HideWindow(MainMenuGuiController.WindowTypes.ChooseControls);
+                this.guiController.ShowWindow(MainMenuGuiController.WindowTypes.MainMenu);
                 break;
             case "Button_ErrorMessage_Back":
-                GuiController.Instance.HideWindow(MainMenuGuiController.WindowTypes.ErrorMessage);
-                GuiController.Instance.ShowWindow(MainMenuGuiController.WindowTypes.MainMenu);
+                this.guiController.HideWindow(MainMenuGuiController.WindowTypes.ErrorMessage);
+                this.guiController.ShowWindow(MainMenuGuiController.WindowTypes.MainMenu);
+                break;
+            case "Button_Controls":
+                this.guiController.HideWindow(MainMenuGuiController.WindowTypes.MainMenu);
+                this.guiController.HideWindow(MainMenuGuiController.WindowTypes.ControlsMafioso);
+                this.guiController.ShowWindow(MainMenuGuiController.WindowTypes.ControlsGeneric);
+                this.guiController.ShowWindow(MainMenuGuiController.WindowTypes.ControlsCop);
+                break;
+            case "Button_Controls_Back":
+                this.guiController.HideWindow(MainMenuGuiController.WindowTypes.ControlsGeneric);
+                this.guiController.ShowWindow(MainMenuGuiController.WindowTypes.MainMenu);
+                break;
+            case "Button_Controls_Cop":
+                this.guiController.HideWindow(MainMenuGuiController.WindowTypes.ControlsMafioso);
+                this.guiController.ShowWindow(MainMenuGuiController.WindowTypes.ControlsCop);
+                break;
+            case "Button_Controls_Mafioso":
+                this.guiController.HideWindow(MainMenuGuiController.WindowTypes.ControlsCop);
+                this.guiController.ShowWindow(MainMenuGuiController.WindowTypes.ControlsMafioso);
                 break;
             case "Button_QuitGame":
                 Application.Quit();

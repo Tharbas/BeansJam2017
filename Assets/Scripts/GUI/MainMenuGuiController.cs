@@ -10,8 +10,14 @@ public class MainMenuGuiController : MonoBehaviour
     {
         ChooseControls,
         Instructions,
+        InstructionsGeneric,
+        InstructionsCop,
+        InstructionsMafioso,
         MainMenu,
-        ErrorMessage
+        ErrorMessage,
+        ControlsGeneric,
+        ControlsCop,
+        ControlsMafioso
     }
 
     [SerializeField]
@@ -24,7 +30,25 @@ public class MainMenuGuiController : MonoBehaviour
     private GameObject instructionsWindow;
 
     [SerializeField]
+    private GameObject instructionsWindowGeneric;
+
+    [SerializeField]
+    private GameObject instructionsWindowCop;
+
+    [SerializeField]
+    private GameObject instructionsWindowMafioso;
+
+    [SerializeField]
     private GameObject errorWindow;
+
+    [SerializeField]
+    private GameObject controlsGenericWindow;
+
+    [SerializeField]
+    private GameObject controlsCopWindow;
+
+    [SerializeField]
+    private GameObject controlsMafiosoWindow;
 
     [SerializeField]
     private Text errorText;
@@ -93,8 +117,14 @@ public class MainMenuGuiController : MonoBehaviour
     private void HideAllWindows()
     {
         this.instructionsWindow.SetActive(false);
+        this.instructionsWindowGeneric.SetActive(false);
+        this.instructionsWindowCop.SetActive(false);
+        this.instructionsWindowMafioso.SetActive(false);
         this.chooseControlsWindow.SetActive(false);
         this.errorWindow.SetActive(false);
+        this.controlsGenericWindow.SetActive(false);
+        this.controlsCopWindow.SetActive(false);
+        this.controlsMafiosoWindow.SetActive(false);
     }
 
     public void ShowWindow(WindowTypes type)
@@ -107,11 +137,29 @@ public class MainMenuGuiController : MonoBehaviour
             case WindowTypes.Instructions:
                 this.instructionsWindow.SetActive(true);
                 break;
+            case WindowTypes.InstructionsGeneric:
+                this.instructionsWindowGeneric.SetActive(true);
+                break;
+            case WindowTypes.InstructionsCop:
+                this.instructionsWindowCop.SetActive(true);
+                break;
+            case WindowTypes.InstructionsMafioso:
+                this.instructionsWindowMafioso.SetActive(true);
+                break;
             case WindowTypes.MainMenu:
                 this.mainMenuWindow.SetActive(true);
                 break;
             case WindowTypes.ErrorMessage:
                 this.errorWindow.SetActive(true);
+                break;
+            case WindowTypes.ControlsGeneric:
+                this.controlsGenericWindow.SetActive(true);
+                break;
+            case WindowTypes.ControlsCop:
+                this.controlsCopWindow.SetActive(true);
+                break;
+            case WindowTypes.ControlsMafioso:
+                this.controlsMafiosoWindow.SetActive(true);
                 break;
         }
     }
@@ -126,11 +174,29 @@ public class MainMenuGuiController : MonoBehaviour
             case WindowTypes.Instructions:
                 this.instructionsWindow.SetActive(false);
                 break;
+            case WindowTypes.InstructionsGeneric:
+                this.instructionsWindowGeneric.SetActive(false);
+                break;
+            case WindowTypes.InstructionsCop:
+                this.instructionsWindowCop.SetActive(false);
+                break;
+            case WindowTypes.InstructionsMafioso:
+                this.instructionsWindowMafioso.SetActive(false);
+                break;
             case WindowTypes.MainMenu:
                 this.mainMenuWindow.SetActive(false);
                 break;
             case WindowTypes.ErrorMessage:
                 this.errorWindow.SetActive(false);
+                break;
+            case WindowTypes.ControlsGeneric:
+                this.controlsGenericWindow.SetActive(false);
+                break;
+            case WindowTypes.ControlsCop:
+                this.controlsCopWindow.SetActive(false);
+                break;
+            case WindowTypes.ControlsMafioso:
+                this.controlsMafiosoWindow.SetActive(false);
                 break;
         }
     }
