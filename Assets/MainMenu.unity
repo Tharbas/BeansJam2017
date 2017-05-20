@@ -2295,7 +2295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &992085963
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2615,8 +2615,8 @@ MonoBehaviour:
 
 
     As the mafioso you can gain points by collecting the protection money from the
-    shops and stash it in your spaceship. Only stashed money does count towards your
-    points.
+    shops and stash it in your spaceship.
+
 
     As a cop you will earn points only by catching the mafioso. If you are able to
     catch him all money he is currently carrying will be split between the cops. If
@@ -3633,7 +3633,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000069618225}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 400}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1486012002
@@ -4045,7 +4045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1610943317
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4844,7 +4844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1942438553
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5195,7 +5195,10 @@ MonoBehaviour:
 
     You can always return to your spaceship in the upper right corner to stash your
     loot. Even if you get caught the autopilot will deliver the credits to your don.
-    Maybe he will come to bust you out but don''t rely on it though.'
+    Maybe he will come to bust you out but don''t rely on it though.
+
+    If you are not caught and the timer runs out all money you are currently carrying
+    will also be added to your points.'
 --- !u!222 &2088287144
 CanvasRenderer:
   m_ObjectHideFlags: 0
