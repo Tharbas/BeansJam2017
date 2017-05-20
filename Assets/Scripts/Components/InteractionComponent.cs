@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractionComponent : MonoBehaviour {
+public class InteractionComponent : MonoBehaviour
+{
+    public enum CharacterType
+    {
+        NPC,
+        Mafioso
+    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    [SerializeField]
+    private CharacterType characterType;
+
+
 }
