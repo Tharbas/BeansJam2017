@@ -165,11 +165,11 @@ public class MainMenuGuiController : MonoBehaviour
             {
                 if (Input.GetAxis("Horizontal_Controller2") < 0)
                 {
-                    this.gamepadSlider1.MoveSliderInDirection(ControlsSliderComponent.SliderPositions.Left);
+                    this.gamepadSlider2.MoveSliderInDirection(ControlsSliderComponent.SliderPositions.Left);
                 }
                 else
                 {
-                    this.gamepadSlider1.MoveSliderInDirection(ControlsSliderComponent.SliderPositions.Right);
+                    this.gamepadSlider2.MoveSliderInDirection(ControlsSliderComponent.SliderPositions.Right);
                 }
             }
 
