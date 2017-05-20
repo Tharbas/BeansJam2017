@@ -25,8 +25,12 @@ public class AISystem : MonoBehaviour {
 	void Update () {
 	    if (Input.GetMouseButtonUp(0))
         {
-            npcs[0].GetComponent<NavMeshAgent>().Move(new Vector3(1f, 0, 1f));
-            
+            Vector3 pos = Component.FindObjectOfType<WaypointComponent>().transform.position;
+            pos.y = 0;
+            foreach (AIEntity npc in npcs)
+            {
+                npc.GetComponent<NavMeshAgent>().SetDestination(pos);
+            }
         }
 	}
 }
