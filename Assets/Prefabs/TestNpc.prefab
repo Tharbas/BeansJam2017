@@ -136,11 +136,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3fb427028e62d40bef10f35251e5b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentTarget: {fileID: 0}
+  CurrentTarget: {x: 0, y: 0, z: 0}
   CurrentSate: 0
   MinIdleTime: 0
   MaxIdleTime: 10
-  IdleTime: 0
+  ActionTimer: 0
   RandomMovementPercentage: 0.01
 --- !u!195 &195217078384874768
 NavMeshAgent:
