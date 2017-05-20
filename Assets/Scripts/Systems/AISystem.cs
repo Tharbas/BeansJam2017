@@ -27,6 +27,11 @@ public class AISystem : MonoBehaviour {
         waypoints.AddRange(Component.FindObjectsOfType<WaypointComponent>());
 
     }
+
+    public void AddNpc(AIEntity npc)
+    {
+        npcs.Add(npc);
+    }
 	
 	// Update is called once per frame
 	void Update () {
