@@ -987,7 +987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &504268573
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4696,8 +4696,10 @@ MonoBehaviour:
     spaceports sensor array can be used to get some clues in which direction the mafioso
     can be found\n- As a last resort you also have a laser gun at your disposal which
     stuns everyone hit by its beam. Be careful not to\n  shoot at civilians running
-    around!\n\nIf you are sure you have spotted the mafioso walk up to him and detain
-    him. If it is indeed the correct person the round ends immediately.\n"
+    around!\n- The shop owners will alert you when the mafioso showed up to collect
+    their money. But they will wait some time\n  before contacting you in fear for
+    their lifes\n\nIf you are sure you have spotted the mafioso walk up to him and
+    detain him. If it is indeed the correct person the round ends immediately.\n"
 --- !u!222 &1843290150
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4844,7 +4846,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1942438553
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5222,7 +5224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2135331068
 RectTransform:
   m_ObjectHideFlags: 0
