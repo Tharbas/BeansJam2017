@@ -68,7 +68,6 @@ public class AISystem : MonoBehaviour {
                 agent.speed = Mathf.Clamp(69 + Random.Range(-1f,1f), 5f, 85f);
             }
 
-
             if (npc.CurrentSate == AIStates.WaitingInLine || npc.CurrentSate == AIStates.Fleeing)
             {   
                 if (npc.ActionTimer > 0f)

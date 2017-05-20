@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     [SerializeField]
-    private PlayerTypes playerType;
+    public PlayerTypes PlayerType;
 
     [SerializeField]
     private float movementspeed = 100.0f;
@@ -53,9 +53,11 @@ public class PlayerController : MonoBehaviour {
     public bool IsControledController1 { get { return this.isControledController1; } }
     public bool IsControledController2 { get { return this.isControledController2; } }
 
+    public Vector3 CurrentMovementVector;
+
     public void Start ()
     {
-        switch (this.playerType)
+        switch (this.PlayerType)
         {
             case PlayerTypes.Cop:
                 this.loadControlSettings(this.prefKeyCop);
@@ -134,6 +136,8 @@ public class PlayerController : MonoBehaviour {
         else
         {
             Vector3 temp = new Vector3(movementVector.x, -movementVector.z, movementVector.y); //Adjust the numbers to the correct world space values again
+
+            CurrentMovementVector = temp;
 
             float angle = Vector3.Angle(Camera.main.transform.forward, temp);
 

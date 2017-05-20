@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -154,6 +155,26 @@ public class PlayerActionsComponent : MonoBehaviour
                         this.DoAction(PossibleActions.DropSmokeBomb);
                     }
                     break;
+            }
+        }
+        if (this.playerType == PlayerTypes.Cop)
+        {
+            HighlightTarget();
+        }
+    }
+
+    private void HighlightTarget()
+    {
+        Vector3 lookDir = playerController.CurrentMovementVector;
+        RaycastHit hitinfo;
+        bool hit = Physics.Raycast(playerController.transform.position, lookDir, out hitinfo);
+        if (hit)
+        {
+            GameObject hitTarget = hitinfo.collider.gameObject;
+            HighlightComponent highlighter = hitTarget.GetComponent<HighlightComponent>();
+            if (highlighter)
+            {
+                highlighter.DoHighlight();
             }
         }
     }
