@@ -31,12 +31,32 @@ public class PlayerActionsComponent : MonoBehaviour
     private GameObject shotPrefab;
 
     [SerializeField]
-    private ParticleEmitter smokeBombEmitter;
+    private ParticleSystem smokeBombSystem;
 
     [SerializeField]
     private GameObject sensorArrow;
 
-    private void Update()
+    [SerializeField]
+    private AudioSource audiosource;
+
+    [SerializeField]
+    private AudioClip audioClipSmokeBomb;
+
+    [SerializeField]
+    private float smokeBombRadius;
+
+    private AISystem aiSystem;
+
+    private GameObject currentHighlightedTarget;
+
+    private bool hasSmokeBomb = true;
+
+    public void Start()
+    {
+        this.aiSystem = FindObjectOfType<AISystem>();
+    }
+
+    public void Update()
     {
         if (this.playerController.IsControledKeyboard)
         {
@@ -157,6 +177,7 @@ public class PlayerActionsComponent : MonoBehaviour
                     break;
             }
         }
+
         if (this.playerType == PlayerTypes.Cop)
         {
             HighlightTarget();
@@ -174,8 +195,13 @@ public class PlayerActionsComponent : MonoBehaviour
             HighlightComponent highlighter = hitTarget.GetComponent<HighlightComponent>();
             if (highlighter)
             {
+                this.currentHighlightedTarget = hitTarget;
                 highlighter.DoHighlight();
             }
+        }
+        else
+        {
+            this.currentHighlightedTarget = null;
         }
     }
 
@@ -207,7 +233,14 @@ public class PlayerActionsComponent : MonoBehaviour
                         Debug.Log("CollectMoney");
                         break;
                     case PossibleActions.DropSmokeBomb:
-                        Debug.Log("SmokeBomb");
+                        if (this.hasSmokeBomb)
+                        {
+                            this.hasSmokeBomb = false;
+                            this.audiosource.clip = this.audioClipSmokeBomb;
+                            this.audiosource.Play();
+                            this.smokeBombSystem.Play();
+                            this.aiSystem.ScareNpcs(this.transform.position, this.smokeBombRadius);
+                        }
                         break;
                 }
                 break;
