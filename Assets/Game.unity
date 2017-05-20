@@ -1447,6 +1447,78 @@ MonoBehaviour:
   MaxRoundTime: 0
   CurrentGameState: 0
   TimeLabel: {fileID: 290688899}
+--- !u!114 &220223654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 220223652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eabadaf788452f428f2b37a5cd6cc5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: 
+    clip: {fileID: 0}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+  - name: 
+    clip: {fileID: 0}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+  - name: 
+    clip: {fileID: 0}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+  - name: 
+    clip: {fileID: 0}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+  - name: 
+    clip: {fileID: 0}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+  - name: 
+    clip: {fileID: 0}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+  - name: 
+    clip: {fileID: 0}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+  - name: 
+    clip: {fileID: 0}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+  - name: 
+    clip: {fileID: 0}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+  - name: 
+    clip: {fileID: 0}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
 --- !u!4 &220223656 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4992217665537620, guid: 1181eeb33e1272c41b588935fd8ac101,
@@ -11399,6 +11471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ce0e6e7f3f04e40b57f04ea6169f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HighlightMaterial: {fileID: 0}
+  HighlightDuration: 0
 --- !u!1 &2015238072
 GameObject:
   m_ObjectHideFlags: 0
