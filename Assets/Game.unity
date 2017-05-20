@@ -1459,62 +1459,104 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: 
-    clip: {fileID: 0}
+  - name: Atmo_Loop
+    clip: {fileID: 8300000, guid: 15d59893e73b69245ad895ea34d62f75, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
-  - name: 
-    clip: {fileID: 0}
+  - name: BodyDeath_01
+    clip: {fileID: 8300000, guid: d437fc8121b42ee4aa3761b8f2984472, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
-  - name: 
-    clip: {fileID: 0}
+  - name: BodyDeath_02
+    clip: {fileID: 8300000, guid: ac5fc88113a9293478daadb4328f4db4, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
-  - name: 
-    clip: {fileID: 0}
+  - name: BodyDeath_03
+    clip: {fileID: 8300000, guid: 70cf28d85c21d254a96d8678817a240b, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
-  - name: 
-    clip: {fileID: 0}
+  - name: BodyImpact_01
+    clip: {fileID: 8300000, guid: 47dbe7cbe8e5aa94aaa782280bd7d6eb, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
-  - name: 
-    clip: {fileID: 0}
+  - name: BodyImpact_02
+    clip: {fileID: 8300000, guid: fba08ef97f038734d8dd7b7b4402fbf7, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
-  - name: 
-    clip: {fileID: 0}
+  - name: BodyImpact_03
+    clip: {fileID: 8300000, guid: a459bbde3e1b750479b11deb77512539, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
-  - name: 
-    clip: {fileID: 0}
+  - name: BodyImpact_04
+    clip: {fileID: 8300000, guid: b5c83ec3856a48d40b1829452c492bc1, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
-  - name: 
-    clip: {fileID: 0}
+  - name: BodyImapct_05
+    clip: {fileID: 8300000, guid: c72bdcd2b1f992a4687fcb067b408f47, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
-  - name: 
-    clip: {fileID: 0}
+  - name: BodyImpact_06
+    clip: {fileID: 8300000, guid: 20b6c659fa0659d4da99676f66642818, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+  - name: DroneActivated
+    clip: {fileID: 8300000, guid: 5e038bf42120ac54aae8684fe665d76e, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+  - name: PlasmaShot_01
+    clip: {fileID: 8300000, guid: dbf093ea9f0a78041be5e9b77b90c6c1, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+  - name: PlasmaShot_02
+    clip: {fileID: 8300000, guid: 9842ef4f61ef90844bdc7677851972b8, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+  - name: PlasmaShot_03
+    clip: {fileID: 8300000, guid: dde5b5e736b6b8243a27037d70f7581c, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+  - name: PlasmaShot_04
+    clip: {fileID: 8300000, guid: 853e56683ad37304f8f9fda5dfc9ee06, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+  - name: Scanner
+    clip: {fileID: 8300000, guid: 26d98b7b1febe9c4a8e89eef8bfc59f0, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+  - name: SmokeGrenade
+    clip: {fileID: 8300000, guid: 4a4a49fa1e516704e8923ffa029473a3, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
