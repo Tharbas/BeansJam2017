@@ -139,7 +139,7 @@ MonoBehaviour:
   CurrentTarget: {fileID: 0}
   CurrentSate: 0
   MinIdleTime: 0
-  MaxIdleTime: 2
+  MaxIdleTime: 10
   IdleTime: 0
   RandomMovementPercentage: 0.01
 --- !u!195 &195217078384874768
@@ -155,7 +155,7 @@ NavMeshAgent:
   m_Acceleration: 200
   avoidancePriority: 50
   m_AngularSpeed: 0
-  m_StoppingDistance: 25
+  m_StoppingDistance: 10
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
