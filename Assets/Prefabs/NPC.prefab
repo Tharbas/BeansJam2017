@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212119654129045894}
   - component: {fileID: 95710423422787154}
   m_Layer: 0
-  m_Name: TestNpcSprite
+  m_Name: NpcSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,8 +43,9 @@ GameObject:
   - component: {fileID: 114058556214396928}
   - component: {fileID: 114987893637268990}
   - component: {fileID: 114946246938411988}
+  - component: {fileID: 114025342201105728}
   m_Layer: 0
-  m_Name: TestNpc
+  m_Name: NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,6 +146,25 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114025342201105728
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1514359761835162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78771a0c06b33a140898a08aa800239b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcVariantsCount: 5
+  allControllers:
+  - {fileID: 9100000, guid: d5df636300d73e241a62fad40ca04a90, type: 2}
+  - {fileID: 9100000, guid: 11aa40bf9ce12374582d5b1a4f74dd03, type: 2}
+  - {fileID: 9100000, guid: d2f9c63cb757baf40b0fb614a762f9fc, type: 2}
+  - {fileID: 9100000, guid: d57e3cfb0e03da643a161e9d8f27f56f, type: 2}
+  - {fileID: 9100000, guid: ae3bd0682e98ca54395ac6a92244cdfd, type: 2}
+  animator: {fileID: 95710423422787154}
 --- !u!114 &114058556214396928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -173,6 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b2d58e3dcbd124583ac740c745525f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterType: 0
 --- !u!114 &114987893637268990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,6 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ce0e6e7f3f04e40b57f04ea6169f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HighlightMaterial: {fileID: 0}
   HighlightDuration: 0
 --- !u!195 &195217078384874768
 NavMeshAgent:
@@ -239,7 +261,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 193d46a71781a6c4aad4d3eef18eabf4, type: 3}
-  m_Color: {r: 1, g: 0.9724138, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
