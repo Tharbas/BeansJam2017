@@ -987,7 +987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &504268573
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2295,7 +2295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &992085963
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2588,7 +2588,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: fe0b11f326ee5f04b9deeda35ecc30e7, type: 3}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
@@ -2600,13 +2600,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'This is local multiplayer game of stealth and deception.
+  m_Text: 'This is a local multiplayer game of stealth and deception.
 
 
-    One player plays the mafioso who is trying to collect protection money from the
-    spaceport shops.
+    One player plays as the mafioso who is trying to collect protection money from
+    the spaceport''s shops.
 
-    The other one plays a cop trying to catch him red handed and detain him.
+    The other one plays as a cop trying to catch and detain him.
 
 
     The game is played in rounds. Every player will be the mafioso once. If all rounds
@@ -4674,7 +4674,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: fe0b11f326ee5f04b9deeda35ecc30e7, type: 3}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
@@ -4687,8 +4687,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "You are playing as the local security officers. Someone tipped you off
-    that Chad \"Baby Face\" Jennings, a member of new Hamburgs most infamous Crime
-    Family will come to the spaceport to collect protection money.\n\nUnfortunately
+    that Chad \"Baby Face\" Jennings, a member of New Hamburg's most infamous crime
+    family will come to the spaceport to collect protection money.\n\nUnfortunately
     you have no idea how he looks and you will have to rely on your perception to
     spot any suspicious activity and catch him.\n\nTo complete this task you have
     some tools at your disposal:\n- You are equipped with a scanner that you can use
@@ -4697,7 +4697,7 @@ MonoBehaviour:
     can be found\n- As a last resort you also have a laser gun at your disposal which
     stuns everyone hit by its beam. Be careful not to\n  shoot at civilians running
     around!\n\nIf you are sure you have spotted the mafioso walk up to him and detain
-    him. If it is indeed the correct person the round end immediately\n"
+    him. If it is indeed the correct person the round ends immediately.\n"
 --- !u!222 &1843290150
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4844,7 +4844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1942438553
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5156,7 +5156,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: fe0b11f326ee5f04b9deeda35ecc30e7, type: 3}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
@@ -5178,7 +5178,7 @@ MonoBehaviour:
     and collect as much credits from the shops as possible before making your getaway.
 
 
-    To collect the protection money move up to the shops counter and talk to the shop
+    To collect the protection money move up to the shop''s counter and talk to the
     owner. You can see the current amount of credits each shop needs to pay hovering
     over it. But take in account that the cops also know that you will probably go
     for the juiciest target and hang around in the vincinity. Will you try to pick
@@ -5197,7 +5197,8 @@ MonoBehaviour:
     loot. Even if you get caught the autopilot will deliver the credits to your don.
     Maybe he will come to bust you out but don''t rely on it though.
 
-    If you are not caught and the timer runs out all money you are currently carrying
+
+    If you are not caught and the timer runs out all the money you are currently carrying
     will also be added to your points.'
 --- !u!222 &2088287144
 CanvasRenderer:
