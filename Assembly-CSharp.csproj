@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\Components\HighlightComponent.cs" />
      <Compile Include="Assets\Scripts\Components\InteractionComponent.cs" />
      <Compile Include="Assets\Scripts\Components\MovementCompoent.cs" />
+     <Compile Include="Assets\Scripts\Components\NpcWalkDirectionComponent.cs" />
      <Compile Include="Assets\Scripts\Components\PlayerActionsComponent.cs" />
      <Compile Include="Assets\Scripts\Components\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Components\RandomSpriteComponent.cs" />
