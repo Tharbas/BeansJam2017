@@ -37,7 +37,7 @@ public class AISystem : MonoBehaviour {
 	void Update () {
         foreach (AIEntity npc in npcs)
         {
-            if(npc.CurrentSate == AIStates.WaitingInLine)
+            if (npc.CurrentSate == AIStates.WaitingInLine)
             {
                 if (npc.IdleTime > 0f)
                 {
@@ -49,27 +49,39 @@ public class AISystem : MonoBehaviour {
                     npc.CurrentSate = AIStates.Idle;
                 }
             }
-            NavMeshAgent agent = npc.GetComponent<NavMeshAgent>();
-            if (agent.path == null || agent.remainingDistance <= agent.stoppingDistance)
+            else if (npc.CurrentSate == AIStates.WalkingToStore)
             {
-                if (npc.CurrentSate == AIStates.WalkingToStore)
+                if (Random.Range(0f, 1f) < npc.RandomMovementPercentage)
                 {
                     npc.CurrentSate = AIStates.WaitingInLine;
-                    npc.IdleTime = Random.Range(npc.MinIdleTime, npc.MaxIdleTime);
-                    continue;
+                    npc.IdleTime = Random.Range(npc.MinIdleTime, npc.MaxIdleTime * 0.33f);
+                    npc.GetComponent<NavMeshAgent>().ResetPath();
                 }
-
-                agent.ResetPath();
-                int rand = Random.Range(0, waypoints.Count);
-                WaypointComponent nextWaypoint = waypoints[rand];
-                while (npc.CurrentTarget != null && nextWaypoint == npc.CurrentTarget)
+            }
+            else if (npc.CurrentSate == AIStates.Idle)
+            {
+                NavMeshAgent agent = npc.GetComponent<NavMeshAgent>();
+                if (agent.path == null || agent.remainingDistance <= agent.stoppingDistance)
                 {
-                    rand = Random.Range(0, waypoints.Count);
-                    nextWaypoint = waypoints[rand];
+                    if (npc.CurrentSate == AIStates.WalkingToStore)
+                    {
+                        npc.CurrentSate = AIStates.WaitingInLine;
+                        npc.IdleTime = Random.Range(npc.MinIdleTime, npc.MaxIdleTime);
+                        continue;
+                    }
+
+                    agent.ResetPath();
+                    int rand = Random.Range(0, waypoints.Count);
+                    WaypointComponent nextWaypoint = waypoints[rand];
+                    while (npc.CurrentTarget != null && nextWaypoint == npc.CurrentTarget)
+                    {
+                        rand = Random.Range(0, waypoints.Count);
+                        nextWaypoint = waypoints[rand];
+                    }
+                    npc.CurrentTarget = nextWaypoint;
+                    npc.CurrentSate = AIStates.WalkingToStore;
+                    npc.GetComponent<NavMeshAgent>().SetDestination(npc.CurrentTarget.transform.position);
                 }
-                npc.CurrentTarget = nextWaypoint;
-                npc.CurrentSate = AIStates.WalkingToStore;
-                npc.GetComponent<NavMeshAgent>().SetDestination(npc.CurrentTarget.transform.position);
             }
         }
 	}

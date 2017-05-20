@@ -537,7 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae6e5b22f9397242a8d2bb318b7b113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxNpcs: 45
+  MaxNpcs: 25
   NpcPrefab: {fileID: 1514359761835162, guid: aaea68b619b323341998ef6703ca469a, type: 2}
   NpcSceneRoot: {fileID: 172128640}
 --- !u!1 &220306018
@@ -1058,6 +1058,16 @@ Prefab:
     - target: {fileID: 4041429004914078, guid: aaea68b619b323341998ef6703ca469a, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114058556214396928, guid: aaea68b619b323341998ef6703ca469a,
+        type: 2}
+      propertyPath: RandomMovementPercentage
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 114058556214396928, guid: aaea68b619b323341998ef6703ca469a,
+        type: 2}
+      propertyPath: MaxIdleTime
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aaea68b619b323341998ef6703ca469a, type: 2}

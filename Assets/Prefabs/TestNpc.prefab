@@ -141,6 +141,7 @@ MonoBehaviour:
   MinIdleTime: 0
   MaxIdleTime: 2
   IdleTime: 0
+  RandomMovementPercentage: 0.01
 --- !u!195 &195217078384874768
 NavMeshAgent:
   m_ObjectHideFlags: 1
