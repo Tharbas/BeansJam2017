@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameSystem : MonoBehaviour {
 
+	public float roundTime;
+	private bool timerRunnin = true;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -11,6 +14,22 @@ public class GameSystem : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+		CountDownGameTime (roundTime);
+		}
+
+
+
+
+	private void CountDownGameTime(float rT)
+	{
+		if (timerRunnin && roundTime > 0.0f) {
+			rT -= Time.deltaTime;
+		} else {
+			timerRunnin = false;
+			Debug.Log ("Game Over");
+		}
 	}
+
+
 }
