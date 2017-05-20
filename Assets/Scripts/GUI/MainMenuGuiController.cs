@@ -139,12 +139,12 @@ public class MainMenuGuiController : MonoBehaviour
     {
         if (this.chooseControlsWindow.activeInHierarchy)
         {
-            if (Input.GetKeyUp(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 this.keyboardSlider.MoveSliderInDirection(ControlsSliderComponent.SliderPositions.Left);
             }
 
-            if (Input.GetKeyUp(KeyCode.RightArrow))
+            if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 this.keyboardSlider.MoveSliderInDirection(ControlsSliderComponent.SliderPositions.Right);
             }
