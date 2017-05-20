@@ -123,39 +123,36 @@ public class PlayerController : MonoBehaviour {
 
     private void UpdateWalkAnimation(Vector3 movementVector)
     {
-        if(this.playerType == PlayerTypes.Mafioso)
+        if (movementVector == Vector3.zero)
         {
-            if (movementVector == Vector3.zero)
+            this.animator.SetInteger("WalkDirection", 0);
+        }
+        else
+        {
+            Vector3 temp = new Vector3(movementVector.x, -movementVector.z, movementVector.y); //Adjust the numbers to the correct world space values again
+
+            float angle = Vector3.Angle(Camera.main.transform.forward, temp);
+
+            if (temp.x < 0)
             {
-                this.animator.SetInteger("WalkDirection", 0);
+                angle = 360 - angle;
             }
-            else
+
+            if (angle > 315 || (angle >= 0 && angle <= 45))
             {
-                Vector3 temp = new Vector3(movementVector.x, -movementVector.z, movementVector.y); //Adjust the numbers to the correct world space values again
-
-                float angle = Vector3.Angle(Camera.main.transform.forward, temp);
-
-                if (temp.x < 0)
-                {
-                    angle = 360 - angle;
-                }
-
-                if (angle > 315 || (angle >= 0 && angle <= 45))
-                {
-                    this.animator.SetInteger("WalkDirection", 1);
-                }
-                else if (angle > 45 && angle <= 135)
-                {
-                    this.animator.SetInteger("WalkDirection", 3);
-                }
-                else if (angle > 135 && angle <= 225)
-                {
-                    this.animator.SetInteger("WalkDirection", 5);
-                }
-                else if (angle > 225 && angle <= 315)
-                {
-                    this.animator.SetInteger("WalkDirection", 7);
-                }
+                this.animator.SetInteger("WalkDirection", 1);
+            }
+            else if (angle > 45 && angle <= 135)
+            {
+                this.animator.SetInteger("WalkDirection", 3);
+            }
+            else if (angle > 135 && angle <= 225)
+            {
+                this.animator.SetInteger("WalkDirection", 5);
+            }
+            else if (angle > 225 && angle <= 315)
+            {
+                this.animator.SetInteger("WalkDirection", 7);
             }
         }
     }
