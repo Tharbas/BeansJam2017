@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 114347517664787844}
   - component: {fileID: 82389870853353674}
   - component: {fileID: 114692076711010570}
+  - component: {fileID: 114733933667601520}
   m_Layer: 0
   m_Name: Player_Mafioso
   m_TagString: Untagged
@@ -303,6 +304,19 @@ MonoBehaviour:
   - {fileID: 9100000, guid: d57e3cfb0e03da643a161e9d8f27f56f, type: 2}
   - {fileID: 9100000, guid: ae3bd0682e98ca54395ac6a92244cdfd, type: 2}
   animator: {fileID: 95703169501865474}
+--- !u!114 &114733933667601520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1782527921994180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17ce0e6e7f3f04e40b57f04ea6169f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HighlightMaterial: {fileID: 1661224149617604}
+  HighlightDuration: 0
 --- !u!114 &114810249305748998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3490,7 +3504,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b000f0bb306e3da45bd8baeaceffa835, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

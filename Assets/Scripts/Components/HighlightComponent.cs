@@ -6,18 +6,19 @@ public class HighlightComponent : MonoBehaviour {
 
     public GameObject HighlightMaterial;
 
+    private Material spriteMaterial;
     public float HighlightDuration;
     float highlightTimer;
 
 	// Use this for initialization
 	void Start () {
-        HighlightMaterial.SetActive(false);
+        spriteMaterial = HighlightMaterial.GetComponent<SpriteRenderer>().material;
     }
 	
     public void DoHighlight()
     {
         highlightTimer = HighlightDuration;
-        HighlightMaterial.SetActive(true);
+        spriteMaterial.SetFloat("_EnableOutline", 1f);
     }
 
 	// Update is called once per frame
@@ -27,7 +28,7 @@ public class HighlightComponent : MonoBehaviour {
             highlightTimer -= Time.deltaTime;
             if (highlightTimer <= 0f)
             {
-                HighlightMaterial.SetActive(false);
+                spriteMaterial.SetFloat("_EnableOutline", 0f);
             }
         }
 	}
