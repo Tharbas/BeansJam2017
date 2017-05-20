@@ -55,6 +55,8 @@ public class PlayerController : MonoBehaviour {
 
     public Vector3 CurrentMovementVector;
 
+    public int Score;
+
     public void Start ()
     {
         switch (this.PlayerType)
