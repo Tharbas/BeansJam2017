@@ -88,7 +88,6 @@ public class PlayerController : MonoBehaviour {
         }
 
         Vector3 movement = new Vector3 (movementHorizontal, 0.0f,movementVertical);
-        movement.Normalize();
 
         this.transform.Translate ((movement * this.movementspeed * Time.deltaTime));
 
