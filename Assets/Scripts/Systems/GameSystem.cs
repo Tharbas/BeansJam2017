@@ -62,7 +62,7 @@ public class GameSystem : MonoBehaviour
     {
         foreach (ShopHotspotComponent shop in shops)
         {
-            Debug.DrawRay(shop.transform.position, Vector3.up * 250, shop.WasRobbed ? Color.red : Color.green);
+            //Debug.DrawRay(shop.transform.position, Vector3.up * 250, shop.WasRobbed ? Color.red : Color.green);
             if (shop.UpdateTimer > 0f)
             {
                 shop.UpdateTimer -= Time.deltaTime;
@@ -83,7 +83,7 @@ public class GameSystem : MonoBehaviour
                 }
             }
 
-            if (shop.CurrentValue > 0)
+            if (Mafioso.WantToCollect && shop.CurrentValue > 0)
             {
                 if (Vector3.Distance(shop.transform.position, Mafioso.gameObject.transform.position) < 15)                    
                 {
@@ -99,6 +99,7 @@ public class GameSystem : MonoBehaviour
                     }
                     else
                     {
+                        Mafioso.WantToCollect = false;
                         shop.WasRobbed = true;
                         shop.UpdateTimer = ShopUpdateTimer * 0.25f;
                     }

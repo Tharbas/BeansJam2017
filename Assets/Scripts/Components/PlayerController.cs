@@ -56,7 +56,8 @@ public class PlayerController : MonoBehaviour {
     public Vector3 CurrentMovementVector;
 
     public int Score;
-
+    public bool WantToCollect;
+    
     public void Start ()
     {
         switch (this.PlayerType)
@@ -72,6 +73,11 @@ public class PlayerController : MonoBehaviour {
         this.animator.SetInteger("WalkDirection", 0);
 	}
 	
+    public void PostUpdate()
+    {
+        WantToCollect = false;
+    }
+
 	public void Update ()
     {
         float movementHorizontal = 0.0f;

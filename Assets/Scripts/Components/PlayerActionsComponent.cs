@@ -231,7 +231,7 @@ public class PlayerActionsComponent : MonoBehaviour
                 switch (action)
                 {
                     case PossibleActions.CollectStashMoney:
-                        Debug.Log("CollectMoney");
+                        playerController.WantToCollect = true;
                         break;
                     case PossibleActions.DropSmokeBomb:
                         if (this.hasSmokeBomb)
