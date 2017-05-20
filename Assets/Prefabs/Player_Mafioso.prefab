@@ -165,6 +165,7 @@ MonoBehaviour:
   prefKeyCop: Controls_Cop
   prefKeyMafioso: Controls_Mafioso
   prefValueDelimiter: 124
+  animator: {fileID: 95703169501865474}
 --- !u!195 &195667965636767756
 NavMeshAgent:
   m_ObjectHideFlags: 1
