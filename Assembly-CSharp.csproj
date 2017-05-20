@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\Systems\AISystem.cs" />
      <Compile Include="Assets\Scripts\Systems\AudioSystem.cs" />
      <Compile Include="Assets\Scripts\Systems\GameSystem.cs" />
+     <None Include="Assets\Shader\SpriteOutline.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Unity_GameJam/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
