@@ -126,11 +126,8 @@ public class PlayerController : MonoBehaviour {
     {
         if(this.playerType == PlayerTypes.Mafioso)
         {
-            Debug.Log("-------------------------");
-            Debug.Log("Movement: " + movementVector.ToString());
             if (movementVector == Vector3.zero)
             {
-                Debug.Log("Case 0");
                 this.animator.SetInteger("WalkDirection", 0);
             }
             else
@@ -144,30 +141,23 @@ public class PlayerController : MonoBehaviour {
                     angle = 360 - angle;
                 }
 
-                Debug.Log("Angle is:" + angle);
-
                 if (angle > 315 || (angle >= 0 && angle <= 45))
                 {
-                    Debug.Log("Case 1");
                     this.animator.SetInteger("WalkDirection", 1);
                 }
                 else if (angle > 45 && angle <= 135)
                 {
-                    Debug.Log("Case 3");
                     this.animator.SetInteger("WalkDirection", 3);
                 }
                 else if (angle > 135 && angle <= 225)
                 {
-                    Debug.Log("Case 5");
                     this.animator.SetInteger("WalkDirection", 5);
                 }
                 else if (angle > 225 && angle <= 315)
                 {
-                    Debug.Log("Case 7");
                     this.animator.SetInteger("WalkDirection", 7);
                 }
             }
-            Debug.Log("-------------------------");
         }
     }
 		
