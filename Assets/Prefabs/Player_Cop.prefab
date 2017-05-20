@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4628055529386468}
   - component: {fileID: 212003411469854364}
   - component: {fileID: 95875918156024074}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 114701191686318176}
   - component: {fileID: 114298401181611346}
   - component: {fileID: 82699729933853122}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player_Cop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1782527921994180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -42.1, y: 0.3, z: 0}
+  m_LocalPosition: {x: -24.37, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4628055529386468}
@@ -264,7 +264,7 @@ MonoBehaviour:
   playerType: 0
   playerController: {fileID: 114295400835342404}
   shotPrefab: {fileID: 0}
-  smokeBombEmitter: {fileID: 0}
+  smokeBombSystem: {fileID: 0}
   sensorArrow: {fileID: 0}
   audiosource: {fileID: 82699729933853122}
   audioClipSmokeBomb: {fileID: 0}
@@ -280,7 +280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18fa3b8285b22bb4db4ccee9aca1eb30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScareRadius: 50
 --- !u!195 &195667965636767756
 NavMeshAgent:
   m_ObjectHideFlags: 1
@@ -299,7 +298,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 8
+  m_BaseOffset: 0.5000004
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!212 &212003411469854364

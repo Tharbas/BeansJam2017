@@ -186,16 +186,17 @@ public class PlayerActionsComponent : MonoBehaviour
 
     private void HighlightTarget()
     {
-        Vector3 lookDir = playerController.CurrentMovementVector;
+        Vector3 lookDir = new Vector3(playerController.CurrentMovementVector.x, playerController.CurrentMovementVector.z, -playerController.CurrentMovementVector.y);
         RaycastHit hitinfo;
         bool hit = Physics.Raycast(playerController.transform.position, lookDir, out hitinfo);
+
         if (hit)
         {
             GameObject hitTarget = hitinfo.collider.gameObject;
+
             HighlightComponent highlighter = hitTarget.GetComponent<HighlightComponent>();
             if (highlighter)
             {
-                this.currentHighlightedTarget = hitTarget;
                 highlighter.DoHighlight();
             }
         }
