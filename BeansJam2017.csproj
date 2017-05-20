@@ -85,9 +85,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Components\MovementCompoent.cs" />
-    <Compile Include="Assets\Scripts\Dummy.cs" />
+    <Compile Include="Assets\Scripts\Components\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Components\WaypointComponent.cs" />
     <Compile Include="Assets\Scripts\Entities\AIEntity.cs" />
     <Compile Include="Assets\Scripts\Entities\PlayerEntity.cs" />
+    <Compile Include="Assets\Scripts\GUI\ControlsSliderComponent.cs" />
     <Compile Include="Assets\Scripts\GUI\GuiController.cs" />
     <Compile Include="Assets\Scripts\GUI\MainMenuGuiController.cs" />
     <Compile Include="Assets\Scripts\GUI\MainMenuGuiEventHandler.cs" />

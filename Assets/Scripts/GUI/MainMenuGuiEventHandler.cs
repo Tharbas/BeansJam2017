@@ -26,6 +26,10 @@ public class MainMenuGuiEventHandler : MonoBehaviour, IPointerClickHandler
                 GuiController.Instance.HideWindow(MainMenuGuiController.WindowTypes.ChooseControls);
                 GuiController.Instance.ShowWindow(MainMenuGuiController.WindowTypes.MainMenu);
                 break;
+            case "Button_ErrorMessage_Back":
+                GuiController.Instance.HideWindow(MainMenuGuiController.WindowTypes.ErrorMessage);
+                GuiController.Instance.ShowWindow(MainMenuGuiController.WindowTypes.MainMenu);
+                break;
             case "Button_QuitGame":
                 Application.Quit();
                 break;
