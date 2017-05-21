@@ -460,7 +460,7 @@ public class GameSystem : MonoBehaviour
             List<GameObject> deadEfects = new List<GameObject>();
             foreach (GameObject effect in activeEffects)
             {
-                if (effect.GetComponent<ParticleSystem>().IsAlive() == false)
+                if (effect.GetComponentInChildren<ParticleSystem>().IsAlive() == false)
                 {
                     deadEfects.Add(effect);
                 }
