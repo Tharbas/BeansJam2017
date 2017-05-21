@@ -332,6 +332,7 @@ MonoBehaviour:
   audiosource: {fileID: 82389870853353674}
   audioClipSmokeBomb: {fileID: 8300000, guid: 4a4a49fa1e516704e8923ffa029473a3, type: 3}
   smokeBombRadius: 20
+  CurrentHighlightedTarget: {fileID: 0}
 --- !u!114 &114996733037015734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -344,7 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerType: 1
-  movementspeed: 100
+  movementspeed: 30
   verticalAxisInputKeyboard: Vertical
   horizontalAxisInputKeyboard: Horizontal
   verticalAxisInputController1: Vertical_Controller1
@@ -358,6 +359,10 @@ MonoBehaviour:
   CurrentMovementVector: {x: 0, y: 0, z: 0}
   Score: 0
   WantToCollect: 0
+  WantToTaser: 0
+  WantToScan: 0
+  WantToArrest: 0
+  WantToSensor: 0
 --- !u!195 &195667965636767756
 NavMeshAgent:
   m_ObjectHideFlags: 1
