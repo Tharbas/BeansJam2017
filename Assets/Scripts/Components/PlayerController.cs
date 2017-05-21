@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
 
     [SerializeField]
     private float movementspeed = 100.0f;
-
+     
     [SerializeField]
 	private string verticalAxisInputKeyboard;
 
@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour {
     public float ActionTimer;
     public float ActionCooldown;
     public GameObject ArrowOverHead;
+    public bool HasSpeedup;
 
     private GameSystem gameSystem;
 
@@ -118,7 +119,18 @@ public class PlayerController : MonoBehaviour {
             }
             return;
         }
-        
+
+        float activespeed = this.movementspeed;
+        if (HasSpeedup)
+        {
+            ActionTimer -= Time.deltaTime;
+            if (ActionTimer <= 0f)
+            {
+                HasSpeedup = false;
+            }
+            activespeed = 69f;
+        }
+
         float movementHorizontal = 0.0f;
         float movementVertical = 0.0f;
 
@@ -142,7 +154,7 @@ public class PlayerController : MonoBehaviour {
 
         Vector3 movement = new Vector3 (movementHorizontal, 0.0f,movementVertical);
 
-        this.transform.Translate ((movement * this.movementspeed * Time.deltaTime));
+        this.transform.Translate ((movement * activespeed * Time.deltaTime));
 
         this.UpdateWalkAnimation(movement);
     }

@@ -241,6 +241,8 @@ public class PlayerActionsComponent : MonoBehaviour
                             this.audiosource.Play();
                             this.smokeBombSystem.Play();
                             this.aiSystem.ScareNpcs(this.transform.position, this.smokeBombRadius);
+                            this.playerController.ActionTimer = 5f;
+                            this.playerController.HasSpeedup = true;
                         }
                         break;
                 }
