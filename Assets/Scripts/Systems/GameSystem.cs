@@ -16,6 +16,7 @@ public class GameSystem : MonoBehaviour
 {
     public float roundTime;
     public float MaxRoundTime;
+    public float startupTimer;
     private bool timerRunnin = true;
 
     public float ShopUpdateTimer = 10f;
@@ -29,10 +30,24 @@ public class GameSystem : MonoBehaviour
 
     public PlayerController Mafioso;
 
+    [SerializeField]
+    private GameObject startupObjects;
+
+    [SerializeField]
+    private GameObject startupArrow;
+
+    private bool startupPhase1 = true;
+    private bool startupPhase2 = true;
+    private bool startupPhase3 = true;
+
     // Use this for initialization
     void Start()
     {
         CurrentGameState = GameState.WaitingToStart;
+        this.startupTimer = 0.0f;
+        this.startupObjects.SetActive(false);
+        this.startupArrow.SetActive(false);
+        FindObjectOfType<AudioSystem>().PlaySound("Atmo_Loop");
         shops = new List<ShopHotspotComponent>();
         shops.AddRange(FindObjectsOfType<ShopHotspotComponent>());
         safe = FindObjectOfType<MoneySafeComponent>();
@@ -45,7 +60,7 @@ public class GameSystem : MonoBehaviour
         {
             case GameState.WaitingToStart:
                 // Countdown to start ? / Show "START" label ?
-                SwitchGameState(GameState.Gamplay);
+                this.CountDownStartTime();
                 break;
             case GameState.Gamplay:
                 CountDownGameTime();
@@ -153,7 +168,54 @@ public class GameSystem : MonoBehaviour
         CurrentGameState = newState;
     }
 
+    private void CountDownStartTime()
+    {
+        
 
+        if(this.startupTimer == 0.0f)
+        {
+            this.startupObjects.SetActive(true);
+        }
+
+        this.startupTimer += Time.deltaTime;
+
+        if (this.startupPhase1)
+        {
+            if (this.startupTimer > 4.0f)
+            {
+                if (!this.startupArrow.activeInHierarchy)
+                {
+                    this.startupArrow.SetActive(true);
+                }
+                else if (this.startupTimer > 5.8f)
+                {
+                    this.startupArrow.SetActive(false);
+                    this.startupPhase1 = false;
+                }
+            }
+        }
+
+        if (this.startupPhase2)
+        {
+            if (this.startupTimer > 6.0f)
+            {
+                this.startupPhase2 = false;
+                FindObjectOfType<AudioSystem>().PlaySound("RobotCountdown");
+            }
+        }
+
+        if (this.startupPhase3)
+        {
+            if (this.startupTimer > 11.0f)
+            {
+                this.startupPhase3 = false;
+                FindObjectOfType<AudioSystem>().PlaySound("InGame_PoliceSiren");
+                this.SwitchGameState(GameState.Gamplay);
+            }
+        }
+
+
+    }
 
     private void CountDownGameTime()
     {
