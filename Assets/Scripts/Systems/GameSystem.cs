@@ -61,6 +61,7 @@ public class GameSystem : MonoBehaviour
         if (firstStart)
         {
             FindObjectOfType<AudioSystem>().PlaySound("Atmo_Loop");
+            firstStart = false;
         }
 
         switch (CurrentGameState)
