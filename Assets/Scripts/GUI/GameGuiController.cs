@@ -43,7 +43,6 @@ public class GameGuiController : MonoBehaviour {
     public void ReportMoneyStashed(int newAmount)
     {
         this.textMoneyStashed.text = newAmount.ToString() + " $";
-        this.textMoneyCarried.text = "0 $";
     }
 
     public void ReportMoneyCollected(int newAmount)
