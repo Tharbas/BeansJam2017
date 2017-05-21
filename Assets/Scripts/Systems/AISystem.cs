@@ -55,6 +55,19 @@ public class AISystem : MonoBehaviour {
         npcs.Add(npc);
     }
 	
+    public void Reset()
+    {
+        foreach (AIEntity npc in npcs)
+        {
+            Vector3 startPos = new Vector3(Random.Range(-255, 255), 0, Random.Range(-130, 130));
+            NavMeshHit hit;
+            NavMesh.SamplePosition(startPos, out hit, 50, 1);
+            npc.transform.SetPositionAndRotation(hit.position, Quaternion.identity);
+            npc.CurrentSate = AIStates.Idle;
+            npc.ActionTimer = Random.Range(0f, npc.ActionTimer);
+        }
+    }
+
 	// Update is called once per frame
 	void Update () {
         foreach (AIEntity npc in npcs)

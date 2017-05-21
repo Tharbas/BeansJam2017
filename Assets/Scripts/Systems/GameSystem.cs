@@ -47,6 +47,8 @@ public class GameSystem : MonoBehaviour
 
     private AudioSystem audioSystem;
 
+    private List<GameObject> activeEffects;
+
     [SerializeField]
     private GameGuiController guiController;
 
@@ -61,6 +63,7 @@ public class GameSystem : MonoBehaviour
     public float CopSensorCooldown = 10f;
     public int WrongArrestPunishScore = 500;
 
+    
     private int currentRound = 1;
 
     // Use this for initialization
@@ -75,6 +78,7 @@ public class GameSystem : MonoBehaviour
             TimeSpan st = TimeSpan.FromSeconds(roundTime);
             this.guiController.SetTimeLeft(st);
         }
+        activeEffects = new List<GameObject>();
         shops = new List<ShopHotspotComponent>();
         shops.AddRange(FindObjectsOfType<ShopHotspotComponent>());
         safe = FindObjectOfType<MoneySafeComponent>();
@@ -157,7 +161,7 @@ public class GameSystem : MonoBehaviour
 
             if (Mafioso.WantToCollect && shop.CurrentValue > 0)
             {
-                if (Vector3.Distance(shop.transform.position, Mafioso.gameObject.transform.position) < 15)
+                if (Vector3.Distance(shop.transform.position, Mafioso.gameObject.transform.position) < 30)
                 {
                     Vector3 playerPos = Mafioso.gameObject.transform.position;
                     Vector3 lookDir = shop.transform.position - playerPos;
@@ -314,7 +318,7 @@ public class GameSystem : MonoBehaviour
                     hit = true;
                     Mafioso.WasTasered = true;
                     Mafioso.ActionTimer = MafiosoTaserTime;
-                    Instantiate(StunEffectPrefab, Mafioso.transform.position + new Vector3(0, 0, 10), Quaternion.identity);
+                    activeEffects.Add(Instantiate(StunEffectPrefab, Mafioso.transform.position + new Vector3(0, 0, 10), Quaternion.identity));
                 }
             }
             if (!hit)
@@ -327,7 +331,7 @@ public class GameSystem : MonoBehaviour
                         bulletC.Owner.Score -= TaserNpcPunishScore;
                         npc.CurrentSate = AIStates.Stunned;
                         npc.ActionTimer = npc.MaxIdleTime;
-                        Instantiate(StunEffectPrefab, npc.transform.position + new Vector3(0, 0, 10), Quaternion.identity);
+                        activeEffects.Add(Instantiate(StunEffectPrefab, npc.transform.position + new Vector3(0, 0, 10), Quaternion.identity));
                         break;
                     }
                 }
@@ -365,7 +369,7 @@ public class GameSystem : MonoBehaviour
                     BulletComponent bc = bullet.GetComponent<BulletComponent>();
                     bc.Direction = dir;
                     bc.Owner = cop;
-                    audioSystem.PlaySound("PlasmaShot_0" + UnityEngine.Random.Range(1,5));
+                    audioSystem.PlaySound("PlasmaShot_0" + UnityEngine.Random.Range(1, 5));
                     bullets.Add(bullet);
                 }
             }
@@ -381,7 +385,7 @@ public class GameSystem : MonoBehaviour
                         targetPlayer.WasTasered = true;
                         targetPlayer.ActionTimer = 2f; // sfx length
                         audioSystem.PlaySound("Scanner");
-                        Instantiate(ScanEffectPrefab, target.transform.position + new Vector3(0, 0, 10), Quaternion.identity);
+                        activeEffects.Add(Instantiate(ScanEffectPrefab, target.transform.position + new Vector3(0, 0, 10), Quaternion.identity));
                     }
                 }
             }
@@ -393,7 +397,7 @@ public class GameSystem : MonoBehaviour
                     cop.ActionTimer = 3f;
                     cop.SensorVisible = true;
                     audioSystem.PlaySound("DroneActivated");
-                    cop.ArrowOverHead.SetActive(true); 
+                    cop.ArrowOverHead.SetActive(true);
                 }
             }
             if (cop.WantToArrest)
@@ -448,6 +452,20 @@ public class GameSystem : MonoBehaviour
                 cop.ActionCooldown -= Time.deltaTime;
                 guiController.ReportCopSensorCooldown(1f - (cop.ActionCooldown / CopSensorCooldown));
             }
+
+            List<GameObject> deadEfects = new List<GameObject>();
+            foreach (GameObject effect in activeEffects)
+            {
+                if (effect.GetComponent<ParticleSystem>().IsAlive() == false)
+                {
+                    deadEfects.Add(effect);
+                }
+            }
+            foreach (GameObject effect in activeEffects)
+            {
+                activeEffects.Remove(effect);
+                GameObject.Destroy(effect);
+            }
         }
     }
 
@@ -460,12 +478,34 @@ public class GameSystem : MonoBehaviour
 
         this.startupTimer = 0.0f;
 
-        Mafioso.Score = 0;
-        for(int i = 0; i < cops.Count; i++)
-        {
-            cops[i].Score = 0;
-        }
         safe.SavedMoney = 0;
+
+        foreach (GameObject bullet in bullets)
+        {
+            GameObject.Destroy(bullet);
+        }
+        bullets.Clear();
+
+        FindObjectOfType<AISystem>().Reset();
+
+        foreach (PlayerController cop in cops)
+        {
+            cop.ActionCooldown = 0;
+            cop.CurrentMovementVector = Vector3.zero;
+            cop.Score = 0;
+            cop.SensorVisible = false;
+            cop.ArrowOverHead.SetActive(false);
+            cop.GetComponent<PlayerActionsComponent>().CurrentHighlightedTarget = null;
+        }
+        Mafioso.ActionCooldown = 0;
+        Mafioso.CurrentMovementVector = Vector3.zero;
+        Mafioso.Score = 0;
+
+        foreach (GameObject effect in activeEffects)
+        {
+            activeEffects.Remove(effect);
+            GameObject.Destroy(effect);
+        }
 
         this.Start();
     }
