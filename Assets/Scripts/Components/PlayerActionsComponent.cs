@@ -49,7 +49,7 @@ public class PlayerActionsComponent : MonoBehaviour
 
     public GameObject CurrentHighlightedTarget;
 
-    private bool hasSmokeBomb = true;
+    public bool hasSmokeBomb = true;
 
     public void Start()
     {

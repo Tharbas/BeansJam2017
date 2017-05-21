@@ -15,6 +15,7 @@ public enum GameState
 
 public class GameSystem : MonoBehaviour
 {
+    public float OriginalRoundTime;
     public float roundTime;
     public float MaxRoundTime;
     public float startupTimer;
@@ -108,6 +109,8 @@ public class GameSystem : MonoBehaviour
                     cops.Add(cop);
                 }
             }
+
+            this.OriginalRoundTime = this.roundTime;
             firstStart = false;
         }
         if (npcs.Count == 0)
@@ -497,6 +500,7 @@ public class GameSystem : MonoBehaviour
         NavMesh.SamplePosition(startPos, out hit, 50, 1);
         Mafioso.transform.position = hit.position;
         Mafioso.GetComponentInChildren<Animator>().runtimeAnimatorController = FindObjectOfType<AISpawner>().GetRandomAnimatorController();
+        Mafioso.GetComponent<PlayerActionsComponent>().hasSmokeBomb = true;
 
         foreach (PlayerController cop in cops)
         {
@@ -517,6 +521,9 @@ public class GameSystem : MonoBehaviour
             activeEffects.Remove(effect);
             GameObject.Destroy(effect);
         }
+
+        this.timerRunnin = true;
+        this.roundTime = this.OriginalRoundTime;
 
         this.Start();
     }
