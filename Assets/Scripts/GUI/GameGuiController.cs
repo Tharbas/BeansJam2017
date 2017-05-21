@@ -137,6 +137,8 @@ public class GameGuiController : MonoBehaviour {
         switch (round)
         {
             case 1:
+                this.ScoreScreen.SetActive(true);
+
                 this.scorePlayer1 += scoreCop;
                 this.scorePlayer2 += scoreMafioso;
 
@@ -155,6 +157,8 @@ public class GameGuiController : MonoBehaviour {
 
                 break;
             case 2:
+                this.ScoreScreen.SetActive(true);
+
                 this.scorePlayer1 += scoreMafioso;
                 this.scorePlayer2 += scoreCop;
 
