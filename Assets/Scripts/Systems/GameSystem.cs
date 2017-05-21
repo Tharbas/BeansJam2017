@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -488,6 +489,15 @@ public class GameSystem : MonoBehaviour
 
         FindObjectOfType<AISystem>().Reset();
 
+        Mafioso.ActionCooldown = 0;
+        Mafioso.CurrentMovementVector = Vector3.zero;
+        Mafioso.Score = 0;
+        Vector3 startPos = new Vector3(UnityEngine.Random.Range(-255, 255), 0, UnityEngine.Random.Range(-130, 130));
+        NavMeshHit hit;
+        NavMesh.SamplePosition(startPos, out hit, 50, 1);
+        Mafioso.transform.position = hit.position;
+        Mafioso.GetComponentInChildren<Animator>().runtimeAnimatorController = FindObjectOfType<AISpawner>().GetRandomAnimatorController();
+
         foreach (PlayerController cop in cops)
         {
             cop.ActionCooldown = 0;
@@ -496,10 +506,11 @@ public class GameSystem : MonoBehaviour
             cop.SensorVisible = false;
             cop.ArrowOverHead.SetActive(false);
             cop.GetComponent<PlayerActionsComponent>().CurrentHighlightedTarget = null;
+
+            startPos = new Vector3(UnityEngine.Random.Range(-255, 255), 0, UnityEngine.Random.Range(-130, 130));
+            NavMesh.SamplePosition(startPos, out hit, 50, 1);
+            cop.transform.position = hit.position;
         }
-        Mafioso.ActionCooldown = 0;
-        Mafioso.CurrentMovementVector = Vector3.zero;
-        Mafioso.Score = 0;
 
         foreach (GameObject effect in activeEffects)
         {
