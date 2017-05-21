@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 114810249305748998}
   - component: {fileID: 114347517664787844}
   - component: {fileID: 82389870853353674}
-  - component: {fileID: 114692076711010570}
   - component: {fileID: 114733933667601520}
   m_Layer: 0
   m_Name: Player_Mafioso
@@ -133,7 +132,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1782527921994180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.5, y: 0, z: 0}
+  m_LocalPosition: {x: -16.499998, y: 8.833309, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4628055529386468}
@@ -281,7 +280,7 @@ Animator:
   m_GameObject: {fileID: 1661224149617604}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a1aa579f6fc5f064fa0008223395c39c, type: 2}
+  m_Controller: {fileID: 9100000, guid: d57e3cfb0e03da643a161e9d8f27f56f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -301,25 +300,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterType: 0
---- !u!114 &114692076711010570
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1782527921994180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78771a0c06b33a140898a08aa800239b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcVariantsCount: 5
-  allControllers:
-  - {fileID: 9100000, guid: d5df636300d73e241a62fad40ca04a90, type: 2}
-  - {fileID: 9100000, guid: 11aa40bf9ce12374582d5b1a4f74dd03, type: 2}
-  - {fileID: 9100000, guid: d2f9c63cb757baf40b0fb614a762f9fc, type: 2}
-  - {fileID: 9100000, guid: d57e3cfb0e03da643a161e9d8f27f56f, type: 2}
-  - {fileID: 9100000, guid: ae3bd0682e98ca54395ac6a92244cdfd, type: 2}
-  animator: {fileID: 95703169501865474}
 --- !u!114 &114733933667601520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3522,7 +3502,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: b000f0bb306e3da45bd8baeaceffa835, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3541,7 +3521,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 193d46a71781a6c4aad4d3eef18eabf4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 74ccde68125811d498467dce4395138a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
