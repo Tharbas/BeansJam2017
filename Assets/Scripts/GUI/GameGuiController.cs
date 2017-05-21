@@ -117,6 +117,7 @@ public class GameGuiController : MonoBehaviour {
 
     public void OnClickQuitGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
 
