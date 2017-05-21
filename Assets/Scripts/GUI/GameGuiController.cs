@@ -2,23 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
-
-
-
-
+using System;
 
 public class GameGuiController : MonoBehaviour {
 
-	public Canvas gameCanvas; 
-	public GameObject[] guiPanels;
-	private GameObject ingameGui;
-	private GameObject gameEndWindow;
-	private GameObject winningMafiosoPanel;
-	private GameObject winningCopPanel;
+    [SerializeField]
+    private Text textTimeLeft;
 
-	void Start()
+    [SerializeField]
+    private Text textTimeCount;
+
+    [SerializeField]
+    private Text textMoneyStashed;
+
+    [SerializeField]
+    private Text textMoneyCarried;
+
+    void Start()
 	{
-		guiPanels = GameObject.FindGameObjectsWithTag ("guipanel");
+		
 	}
+
+    public void SetTimeLeft(TimeSpan span)
+    {
+        //TimeLabel.text = "Time Left : " + string.Format("{0:00}:{1:00}", st.Minutes, st.Seconds);
+    }
 
 }
