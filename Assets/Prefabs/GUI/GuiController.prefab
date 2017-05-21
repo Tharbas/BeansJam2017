@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e71cb4783a03fb4bbe6d615658c1e20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startTimeBlink: 20
   textTimeLeft: {fileID: 0}
   textTimeCount: {fileID: 0}
   textMoneyStashed: {fileID: 0}
