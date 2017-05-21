@@ -54,27 +54,7 @@ public class PlayerController : MonoBehaviour {
     public bool IsControledController2 { get { return this.isControledController2; } }
 
     public Vector3 CurrentMovementVector;
-
-    public int DisplayScore
-    {
-        get
-        {
-            if (PlayerType == PlayerTypes.Cop)
-            {
-                return Score;
-            }
-            else
-            {
-                if (cachedMoneySafe == null)
-                {
-                    cachedMoneySafe = FindObjectOfType<MoneySafeComponent>();
-                }
-                return Score + cachedMoneySafe.SavedMoney;
-            }
-        }
-    }
-
-    private MoneySafeComponent cachedMoneySafe;
+    
     public int Score;
     public bool WantToCollect;
 
@@ -82,6 +62,9 @@ public class PlayerController : MonoBehaviour {
     public bool WantToScan;
     public bool WantToArrest;
     public bool WantToSensor;
+
+    public bool WasTasered;
+    public float TaserTime;
 
     public void Start ()
     {
@@ -103,9 +86,19 @@ public class PlayerController : MonoBehaviour {
     {
         WantToCollect = false;
     }
-
+    
 	public void Update ()
     {
+        if (WasTasered)
+        {
+            TaserTime -= Time.deltaTime;
+            if (TaserTime <= 0f)
+            {
+                WasTasered = false;
+            }
+            return;
+        }
+
         float movementHorizontal = 0.0f;
         float movementVertical = 0.0f;
 
