@@ -28,7 +28,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1248656647257526
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,7 +75,6 @@ GameObject:
   - component: {fileID: 4992217665537620}
   - component: {fileID: 212685153522131638}
   - component: {fileID: 208387182761173294}
-  - component: {fileID: 114866898777697078}
   - component: {fileID: 114889819640253782}
   - component: {fileID: 114746010207717946}
   - component: {fileID: 114548025277913702}
@@ -179,7 +178,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1133764527528626}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -416,155 +415,17 @@ MonoBehaviour:
   Mafioso: {fileID: 0}
   startupObjects: {fileID: 0}
   startupArrow: {fileID: 0}
+  ColliderRoot: {fileID: 0}
   StunEffectPrefab: {fileID: 1768195372080122, guid: dfd99a9833f5d03418d9900550135ae2,
+    type: 2}
+  ScanEffectPrefab: {fileID: 1768195372080122, guid: 0118d5e71ca262949b4c9cb926aa58ef,
     type: 2}
   BulletPrefab: {fileID: 1564770898398704, guid: ef35618b2274e164a984e97c8910442b,
     type: 2}
---- !u!114 &114866898777697078
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1496553652517462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0eabadaf788452f428f2b37a5cd6cc5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: Atmo_Loop
-    clip: {fileID: 8300000, guid: 15d59893e73b69245ad895ea34d62f75, type: 3}
-    volume: 0.7
-    pitch: 1
-    randomVolume: 0.1
-    randomPitch: 0.1
-    loop: 0
-  - name: BodyDeath_01
-    clip: {fileID: 8300000, guid: d437fc8121b42ee4aa3761b8f2984472, type: 3}
-    volume: 0.7
-    pitch: 1
-    randomVolume: 0.1
-    randomPitch: 0.1
-    loop: 0
-  - name: BodyDeath_02
-    clip: {fileID: 8300000, guid: ac5fc88113a9293478daadb4328f4db4, type: 3}
-    volume: 0.7
-    pitch: 1
-    randomVolume: 0.1
-    randomPitch: 0.1
-    loop: 0
-  - name: BodyDeath_03
-    clip: {fileID: 8300000, guid: 70cf28d85c21d254a96d8678817a240b, type: 3}
-    volume: 0.7
-    pitch: 1
-    randomVolume: 0.1
-    randomPitch: 0.1
-    loop: 0
-  - name: BodyImpact_01
-    clip: {fileID: 8300000, guid: 47dbe7cbe8e5aa94aaa782280bd7d6eb, type: 3}
-    volume: 0.7
-    pitch: 1
-    randomVolume: 0.1
-    randomPitch: 0.1
-    loop: 0
-  - name: BodyImpact_02
-    clip: {fileID: 8300000, guid: fba08ef97f038734d8dd7b7b4402fbf7, type: 3}
-    volume: 0.7
-    pitch: 1
-    randomVolume: 0.1
-    randomPitch: 0.1
-    loop: 0
-  - name: BodyImpact_03
-    clip: {fileID: 8300000, guid: a459bbde3e1b750479b11deb77512539, type: 3}
-    volume: 0.7
-    pitch: 1
-    randomVolume: 0.1
-    randomPitch: 0.1
-    loop: 0
-  - name: BodyImpact_04
-    clip: {fileID: 8300000, guid: b5c83ec3856a48d40b1829452c492bc1, type: 3}
-    volume: 0.7
-    pitch: 1
-    randomVolume: 0.1
-    randomPitch: 0.1
-    loop: 0
-  - name: BodyImapct_05
-    clip: {fileID: 8300000, guid: c72bdcd2b1f992a4687fcb067b408f47, type: 3}
-    volume: 0.7
-    pitch: 1
-    randomVolume: 0.1
-    randomPitch: 0.1
-    loop: 0
-  - name: BodyImpact_06
-    clip: {fileID: 8300000, guid: 20b6c659fa0659d4da99676f66642818, type: 3}
-    volume: 0.7
-    pitch: 1
-    randomVolume: 0.1
-    randomPitch: 0.1
-    loop: 0
-  - name: DroneActivated
-    clip: {fileID: 8300000, guid: 5e038bf42120ac54aae8684fe665d76e, type: 3}
-    volume: 0.7
-    pitch: 1
-    randomVolume: 0.1
-    randomPitch: 0.1
-    loop: 0
-  - name: PlasmaShot_01
-    clip: {fileID: 8300000, guid: dbf093ea9f0a78041be5e9b77b90c6c1, type: 3}
-    volume: 0.7
-    pitch: 1
-    randomVolume: 0.1
-    randomPitch: 0.1
-    loop: 0
-  - name: PlasmaShot_02
-    clip: {fileID: 8300000, guid: 9842ef4f61ef90844bdc7677851972b8, type: 3}
-    volume: 0.7
-    pitch: 1
-    randomVolume: 0.1
-    randomPitch: 0.1
-    loop: 0
-  - name: PlasmaShot_03
-    clip: {fileID: 8300000, guid: dde5b5e736b6b8243a27037d70f7581c, type: 3}
-    volume: 0.7
-    pitch: 1
-    randomVolume: 0.1
-    randomPitch: 0.1
-    loop: 0
-  - name: PlasmaShot_04
-    clip: {fileID: 8300000, guid: 853e56683ad37304f8f9fda5dfc9ee06, type: 3}
-    volume: 0.7
-    pitch: 1
-    randomVolume: 0.1
-    randomPitch: 0.1
-    loop: 0
-  - name: Scanner
-    clip: {fileID: 8300000, guid: 26d98b7b1febe9c4a8e89eef8bfc59f0, type: 3}
-    volume: 0.7
-    pitch: 1
-    randomVolume: 0.1
-    randomPitch: 0.1
-    loop: 0
-  - name: SmokeGrenade
-    clip: {fileID: 8300000, guid: 4a4a49fa1e516704e8923ffa029473a3, type: 3}
-    volume: 0.7
-    pitch: 1
-    randomVolume: 0.1
-    randomPitch: 0.1
-    loop: 0
-  - name: RobotCountdown
-    clip: {fileID: 8300000, guid: 3744482edd391bb429e20d95adc2e8f9, type: 3}
-    volume: 0.7
-    pitch: 1
-    randomVolume: 0.1
-    randomPitch: 0.1
-    loop: 0
-  - name: InGame_PoliceSiren
-    clip: {fileID: 8300000, guid: c24b5e6c10ffa01448e9ae4f87de2220, type: 3}
-    volume: 0.7
-    pitch: 1
-    randomVolume: 0.1
-    randomPitch: 0.1
-    loop: 0
+  guiController: {fileID: 0}
+  MaxTaserBullets: 1
+  TaserNpcPunishScore: 100
+  MafiosoTaserTime: 2.5
 --- !u!114 &114889819640253782
 MonoBehaviour:
   m_ObjectHideFlags: 1

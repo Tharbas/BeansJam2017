@@ -40,6 +40,12 @@ public class GameSystem : MonoBehaviour
     private List<AIEntity> npcs;
     public GameObject ColliderRoot;
     private List<BoxCollider> walls;
+    List<PlayerController> cops;
+    public GameObject StunEffectPrefab;
+    public GameObject ScanEffectPrefab;
+    public GameObject BulletPrefab;
+
+    private AudioSystem audioSystem;
 
     [SerializeField]
     private GameGuiController guiController;
@@ -74,6 +80,7 @@ public class GameSystem : MonoBehaviour
         {
             walls.AddRange(ColliderRoot.GetComponentsInChildren<BoxCollider>());            
         }
+        audioSystem = FindObjectOfType<AudioSystem>();
         bullets = new List<GameObject>();
         firstStart = true;
     }
@@ -83,7 +90,15 @@ public class GameSystem : MonoBehaviour
     {
         if (firstStart)
         {
-            FindObjectOfType<AudioSystem>().PlaySound("Atmo_Loop");
+            audioSystem.PlaySound("Atmo_Loop");
+            cops = new List<PlayerController>();
+            foreach (PlayerController cop in FindObjectsOfType<PlayerController>())
+            {
+                if (cop.PlayerType == PlayerController.PlayerTypes.Cop)
+                {
+                    cops.Add(cop);
+                }
+            }
             firstStart = false;
         }
         if (npcs.Count == 0)
@@ -332,24 +347,8 @@ public class GameSystem : MonoBehaviour
         }
     }
 
-    public GameObject StunEffectPrefab;
-    public GameObject BulletPrefab;
-
     private void ProcessCops()
     {
-        // - move
-        List<PlayerController> cops = new List<PlayerController>();
-        foreach (PlayerController cop in FindObjectsOfType<PlayerController>())
-        {
-            if (cop.PlayerType == PlayerController.PlayerTypes.Cop)
-            {
-                cops.Add(cop);
-            }
-        }
-
-
-        //--
-
         foreach (PlayerController cop in cops)
         {
             if (cop.WantToTaser)
@@ -364,6 +363,22 @@ public class GameSystem : MonoBehaviour
                     bc.Direction = dir;
                     bc.Owner = cop;
                     bullets.Add(bullet);
+                }
+            }
+            if (cop.WantToScan)
+            {
+                cop.WantToScan = false;
+                GameObject target = cop.GetComponent<PlayerActionsComponent>().CurrentHighlightedTarget;
+                if (target != null)
+                {
+                    PlayerController targetPlayer = target.GetComponent<PlayerController>();
+                    if (targetPlayer != null && targetPlayer.PlayerType == PlayerController.PlayerTypes.Mafioso)
+                    {
+                        targetPlayer.WasTasered = true;
+                        targetPlayer.TaserTime = 2f; // sfx length
+                        audioSystem.PlaySound("Scanner");
+                        Instantiate(ScanEffectPrefab, target.transform.position + new Vector3(0, 0, 10), Quaternion.identity);                        
+                    }
                 }
             }
         }
