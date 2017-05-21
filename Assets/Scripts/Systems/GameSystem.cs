@@ -47,6 +47,8 @@ public class GameSystem : MonoBehaviour
     public GameObject ScanEffectPrefab;
     public GameObject BulletPrefab;
 
+    public SensorEffect SensorEffectPrefab;
+
     private AudioSystem audioSystem;
 
     private List<GameObject> activeEffects;
@@ -93,6 +95,16 @@ public class GameSystem : MonoBehaviour
         audioSystem = FindObjectOfType<AudioSystem>();
         bullets = new List<GameObject>();
         firstStart = true;
+        if (SensorEffectPrefab)
+        {
+            SensorEffectPrefab.OnAnimationDone = OnSensorAnimationDone;
+            SensorEffectPrefab.gameObject.SetActive(false);
+        }
+    }
+
+    private void OnSensorAnimationDone()
+    {
+        SensorEffectPrefab.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -411,6 +423,8 @@ public class GameSystem : MonoBehaviour
                 cop.WantToSensor = false;
                 if (cop.SensorVisible == false && cop.ActionCooldown <= 0f)
                 {
+                    SensorEffectPrefab.RestartEffect();
+                    SensorEffectPrefab.gameObject.SetActive(true);
                     cop.ActionTimer = 3f;
                     cop.SensorVisible = true;
                     audioSystem.PlaySound("DroneActivated");
