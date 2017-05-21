@@ -216,7 +216,7 @@ public class MainMenuGuiController : MonoBehaviour
                 this.keyboardSlider.MoveSliderInDirection(ControlsSliderComponent.SliderPositions.Left);
             }
 
-            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
             {
                 this.keyboardSlider.MoveSliderInDirection(ControlsSliderComponent.SliderPositions.Right);
             }
