@@ -55,6 +55,26 @@ public class PlayerController : MonoBehaviour {
 
     public Vector3 CurrentMovementVector;
 
+    public int DisplayScore
+    {
+        get
+        {
+            if (PlayerType == PlayerTypes.Cop)
+            {
+                return Score;
+            }
+            else
+            {
+                if (cachedMoneySafe == null)
+                {
+                    cachedMoneySafe = FindObjectOfType<MoneySafeComponent>();
+                }
+                return Score + cachedMoneySafe.SavedMoney;
+            }
+        }
+    }
+
+    private MoneySafeComponent cachedMoneySafe;
     public int Score;
     public bool WantToCollect;
     
