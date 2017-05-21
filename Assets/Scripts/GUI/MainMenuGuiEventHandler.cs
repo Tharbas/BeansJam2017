@@ -11,6 +11,8 @@ public class MainMenuGuiEventHandler : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        this.guiController.PlayButtonBeep();
+
         switch (eventData.pointerPress.gameObject.name)
         {
             case "Button_StartGame":

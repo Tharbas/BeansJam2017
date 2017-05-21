@@ -83,6 +83,12 @@ public class MainMenuGuiController : MonoBehaviour
     [SerializeField]
     private char prefValueDelimiter;
 
+    [SerializeField]
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private AudioClip buttonBeepClip;
+
 
     public void Start ()
     {
@@ -328,4 +334,10 @@ public class MainMenuGuiController : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
+    public void PlayButtonBeep()
+    {
+        this.audioSource.Stop();
+        this.audioSource.clip = this.buttonBeepClip;
+        this.audioSource.Play();
+    }
 }
