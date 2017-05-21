@@ -65,6 +65,8 @@ public class GameGuiController : MonoBehaviour {
     private int scorePlayer1 = 0;
     private int scorePlayer2 = 0;
 
+    public bool IsScoreScreenOpen { get { return this.ScoreScreen.activeInHierarchy; } }
+
     void Start()
 	{
         this.pauseMenu.SetActive(false);

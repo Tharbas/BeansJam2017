@@ -61,6 +61,8 @@ public class GameSystem : MonoBehaviour
     public float CopSensorCooldown = 10f;
     public int WrongArrestPunishScore = 500;
 
+    private int currentRound = 1;
+
     // Use this for initialization
     void Start()
     {
@@ -111,16 +113,15 @@ public class GameSystem : MonoBehaviour
         switch (CurrentGameState)
         {
             case GameState.WaitingToStart:
-                // Countdown to start ? / Show "START" label ?
                 this.CountDownStartTime();
                 break;
             case GameState.Gamplay:
                 CountDownGameTime();
                 break;
             case GameState.GameOver:
-                if (Input.anyKeyDown)
+                if (!this.guiController.IsScoreScreenOpen)
                 {
-                    SceneManager.LoadScene("MainMenu");
+                    this.guiController.OnOpenScoreScreen(cops[0].Score, Mafioso.Score + safe.SavedMoney, this.currentRound);
                 }
                 break;
         }
@@ -452,8 +453,20 @@ public class GameSystem : MonoBehaviour
 
     public void StartSecondRound()
     {
+        this.currentRound++;
+        this.startupPhase1 = true;
+        this.startupPhase2 = true;
+        this.startupPhase3 = true;
 
+        this.startupTimer = 0.0f;
+
+        Mafioso.Score = 0;
+        for(int i = 0; i < cops.Count; i++)
+        {
+            cops[i].Score = 0;
+        }
+        safe.SavedMoney = 0;
+
+        this.Start();
     }
-
-
 }
