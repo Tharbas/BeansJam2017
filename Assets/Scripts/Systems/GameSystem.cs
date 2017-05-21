@@ -383,13 +383,23 @@ public class GameSystem : MonoBehaviour
                 GameObject target = cop.GetComponent<PlayerActionsComponent>().CurrentHighlightedTarget;
                 if (target != null)
                 {
-                    PlayerController targetPlayer = target.GetComponent<PlayerController>();
-                    if (targetPlayer != null && targetPlayer.PlayerType == PlayerController.PlayerTypes.Mafioso)
+                    AIEntity targetNpc = target.GetComponent<AIEntity>();
+                    if(targetNpc != null)
                     {
-                        targetPlayer.WasTasered = true;
-                        targetPlayer.ActionTimer = 2f; // sfx length
                         audioSystem.PlaySound("Scanner");
                         activeEffects.Add(Instantiate(ScanEffectPrefab, target.transform.position + new Vector3(0, 0, 10), Quaternion.identity));
+                        targetNpc.IsBeingScanned();
+                    }
+                    else
+                    {
+                        PlayerController targetPlayer = target.GetComponent<PlayerController>();
+                        if (targetPlayer != null && targetPlayer.PlayerType == PlayerController.PlayerTypes.Mafioso)
+                        {
+                            targetPlayer.WasTasered = true;
+                            targetPlayer.ActionTimer = 2f; // sfx length
+                            audioSystem.PlaySound("Scanner");
+                            activeEffects.Add(Instantiate(ScanEffectPrefab, target.transform.position + new Vector3(0, 0, 10), Quaternion.identity));
+                        }
                     }
                 }
             }
