@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour {
     public enum PlayerTypes
@@ -81,6 +82,11 @@ public class PlayerController : MonoBehaviour {
                 break;
         }
         gameSystem = FindObjectOfType<GameSystem>();
+        
+        Vector3 startPos = new Vector3(Random.Range(-255, 255), 0, Random.Range(-130, 130));
+        NavMeshHit hit;
+        NavMesh.SamplePosition(startPos, out hit, 50, 1);
+        transform.position = hit.position;
 
         this.animator.SetInteger("WalkDirection", 0);
 	}
