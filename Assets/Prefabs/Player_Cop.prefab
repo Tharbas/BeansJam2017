@@ -289,7 +289,8 @@ MonoBehaviour:
   SensorVisible: 0
   WasTasered: 0
   ActionTimer: 0
-  ArrowOverHead: {fileID: 1773157452434430}
+  ActionCooldown: 0
+  ArrowOverHead: {fileID: 0}
 --- !u!114 &114298401181611346
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour {
 
     public bool WasTasered;
     public float ActionTimer;
+    public float ActionCooldown;
     public GameObject ArrowOverHead;
 
     private GameSystem gameSystem;

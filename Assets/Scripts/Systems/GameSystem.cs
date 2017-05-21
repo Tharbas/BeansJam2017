@@ -58,6 +58,7 @@ public class GameSystem : MonoBehaviour
     bool firstStart;
     public int TaserNpcPunishScore = 100;
     public float MafiosoTaserTime = 2.5f;
+    public float CopSensorCooldown = 10f;
     public int WrongArrestPunishScore = 500;
 
     // Use this for initialization
@@ -79,7 +80,7 @@ public class GameSystem : MonoBehaviour
         walls = new List<BoxCollider>();
         if (ColliderRoot != null)
         {
-            walls.AddRange(ColliderRoot.GetComponentsInChildren<BoxCollider>());            
+            walls.AddRange(ColliderRoot.GetComponentsInChildren<BoxCollider>());
         }
         audioSystem = FindObjectOfType<AudioSystem>();
         bullets = new List<GameObject>();
@@ -357,12 +358,13 @@ public class GameSystem : MonoBehaviour
                 cop.WantToTaser = false;
                 if (bullets.Count < MaxTaserBullets)
                 {
-                    GameObject bullet = Instantiate(BulletPrefab, cop.transform.position + (Vector3.forward * 2),new Quaternion(1, 0, 0, 1));
+                    GameObject bullet = Instantiate(BulletPrefab, cop.transform.position + (Vector3.forward * 2), new Quaternion(1, 0, 0, 1));
                     Vector3 dir = cop.CurrentMovementVector.normalized;
                     dir.y = -dir.y;
                     BulletComponent bc = bullet.GetComponent<BulletComponent>();
                     bc.Direction = dir;
                     bc.Owner = cop;
+                    audioSystem.PlaySound("PlasmaShot_0" + UnityEngine.Random.Range(1,5));
                     bullets.Add(bullet);
                 }
             }
@@ -378,48 +380,71 @@ public class GameSystem : MonoBehaviour
                         targetPlayer.WasTasered = true;
                         targetPlayer.ActionTimer = 2f; // sfx length
                         audioSystem.PlaySound("Scanner");
-                        Instantiate(ScanEffectPrefab, target.transform.position + new Vector3(0, 0, 10), Quaternion.identity);                        
+                        Instantiate(ScanEffectPrefab, target.transform.position + new Vector3(0, 0, 10), Quaternion.identity);
                     }
                 }
             }
             if (cop.WantToSensor)
             {
-                //cop.WantToSensor = false;
-                //cop.ActionTimer = 3f;
-                //cop.SensorVisible = true;
-                //cop.ArrowOverHead.SetActive(true);
+                cop.WantToSensor = false;
+                if (cop.SensorVisible == false && cop.ActionCooldown <= 0f)
+                {
+                    cop.ActionTimer = 3f;
+                    cop.SensorVisible = true;
+                    audioSystem.PlaySound("DroneActivated");
+                    cop.ArrowOverHead.SetActive(true); 
+                }
             }
-            if  (cop.WantToArrest)
+            if (cop.WantToArrest)
             {
-                cop.WantToScan = false;
+                cop.WantToArrest = false;
                 GameObject target = cop.GetComponent<PlayerActionsComponent>().CurrentHighlightedTarget;
                 if (target != null)
                 {
                     PlayerController targetPlayer = target.GetComponent<PlayerController>();
                     if (targetPlayer != null && targetPlayer.PlayerType == PlayerController.PlayerTypes.Mafioso)
                     {
+                        audioSystem.PlaySound("BodyDeath_0" + UnityEngine.Random.Range(1, 4));
                         cop.Score += targetPlayer.Score;
                         targetPlayer.Score = 0;
                         SwitchGameState(GameState.GameOver);
                     }
-                    AIEntity targetAI = target.GetComponent<AIEntity>();
-                    if (targetAI != null)
+                    else
                     {
-                        cop.Score -= WrongArrestPunishScore;
+                        AIEntity targetAI = target.GetComponent<AIEntity>();
+                        if (targetAI != null)
+                        {
+                            cop.Score -= WrongArrestPunishScore;
+                            audioSystem.PlaySound("BodyImpact_0" + UnityEngine.Random.Range(1, 7));
+                        }
                     }
                 }
             }
 
 
-            if(cop.SensorVisible ||true)
+            if (cop.SensorVisible)
             {
-                //cop.ArrowOverHead.SetActive(true);
-                //Vector3 temp = new Vector3(movementVector.x, -movementVector.z, movementVector.y);
-                Vector3 targetPos = new Vector3(Mafioso.transform.position.x,Mafioso.transform.position.z, Mafioso.transform.position.y);
-                Vector3 copPos = new Vector3(cop.transform.position.x, cop.transform.position.z, cop.transform.position.y);
-                float angle = Vector3.Angle(targetPos, copPos);
-                Debug.Log(cop.ArrowOverHead.transform.rotation.eulerAngles);
-                cop.ArrowOverHead.transform.rotation = Quaternion.AngleAxis(90f, Vector3.right) * Quaternion.AngleAxis(angle, Vector3.forward);
+                if (cop.ActionTimer > 0f)
+                {
+                    cop.ActionTimer -= Time.deltaTime;
+                    if (cop.ActionTimer < 0f)
+                    {
+                        cop.SensorVisible = false;
+                        cop.ArrowOverHead.SetActive(false);
+                        cop.ActionCooldown = CopSensorCooldown;
+                    }
+                    else
+                    {
+                        Vector3 target = new Vector3(Mafioso.transform.position.x, cop.ArrowOverHead.transform.position.y, Mafioso.transform.position.z);
+                        cop.ArrowOverHead.transform.LookAt(target, Vector3.up);
+                        cop.ArrowOverHead.transform.Rotate(Vector3.left, 90f);
+                    }
+                }
+            }
+
+            if (cop.ActionCooldown > 0f)
+            {
+                cop.ActionCooldown -= Time.deltaTime;
             }
         }
     }
