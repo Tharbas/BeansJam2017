@@ -7,7 +7,7 @@ using UnityEngine;
 
 
 
-public class GameGUIController : MonoBehaviour {
+public class GameGuiController : MonoBehaviour {
 
 	public Canvas gameCanvas; 
 	public GameObject[] guiPanels;
