@@ -6194,6 +6194,11 @@ Prefab:
       propertyPath: roundTime
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 114746010207717946, guid: 1181eeb33e1272c41b588935fd8ac101,
+        type: 2}
+      propertyPath: ShopUpdateTimer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1181eeb33e1272c41b588935fd8ac101, type: 2}
   m_IsPrefabParent: 0
