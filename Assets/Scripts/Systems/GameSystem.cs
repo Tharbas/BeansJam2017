@@ -154,6 +154,7 @@ public class GameSystem : MonoBehaviour
                 {
                     // ALERT !!
                     Mafioso.Score += shop.CurrentValue;
+                    audioSystem.PlaySound("InGame_MoneyCollect");
                     shop.CurrentValue = 0;
                     shop.WasRobbed = false;
                 }

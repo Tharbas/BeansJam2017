@@ -1050,6 +1050,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114591768506615506, guid: eb793e846127d374abed1e4c04874843,
+        type: 2}
+      propertyPath: sounds.Array.size
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4818957963211844, guid: eb793e846127d374abed1e4c04874843, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1081,6 +1086,36 @@ Prefab:
     - target: {fileID: 4818957963211844, guid: eb793e846127d374abed1e4c04874843, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114591768506615506, guid: eb793e846127d374abed1e4c04874843,
+        type: 2}
+      propertyPath: sounds.Array.data[19].name
+      value: InGame_MoneyCollect
+      objectReference: {fileID: 0}
+    - target: {fileID: 114591768506615506, guid: eb793e846127d374abed1e4c04874843,
+        type: 2}
+      propertyPath: sounds.Array.data[19].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: bd56b33aedfc34844bfaad557e916aec, type: 3}
+    - target: {fileID: 114591768506615506, guid: eb793e846127d374abed1e4c04874843,
+        type: 2}
+      propertyPath: sounds.Array.data[19].volume
+      value: 0.504
+      objectReference: {fileID: 0}
+    - target: {fileID: 114591768506615506, guid: eb793e846127d374abed1e4c04874843,
+        type: 2}
+      propertyPath: sounds.Array.data[19].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114591768506615506, guid: eb793e846127d374abed1e4c04874843,
+        type: 2}
+      propertyPath: sounds.Array.data[19].randomVolume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114591768506615506, guid: eb793e846127d374abed1e4c04874843,
+        type: 2}
+      propertyPath: sounds.Array.data[19].randomPitch
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb793e846127d374abed1e4c04874843, type: 2}
