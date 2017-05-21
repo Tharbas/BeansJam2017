@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Components\BulletComponent.cs" />
      <Compile Include="Assets\Scripts\Components\HighlightComponent.cs" />
      <Compile Include="Assets\Scripts\Components\InteractionComponent.cs" />
      <Compile Include="Assets\Scripts\Components\MoneySafeComponent.cs" />
@@ -58,13 +59,14 @@
      <Compile Include="Assets\Scripts\Entities\AIEntity.cs" />
      <Compile Include="Assets\Scripts\Entities\PlayerEntity.cs" />
      <Compile Include="Assets\Scripts\GUI\ControlsSliderComponent.cs" />
+     <Compile Include="Assets\Scripts\GUI\GameGuiController.cs" />
      <Compile Include="Assets\Scripts\GUI\MainMenuGuiController.cs" />
      <Compile Include="Assets\Scripts\GUI\MainMenuGuiEventHandler.cs" />
      <Compile Include="Assets\Scripts\Systems\AISpawner.cs" />
      <Compile Include="Assets\Scripts\Systems\AISystem.cs" />
      <Compile Include="Assets\Scripts\Systems\AudioSystem.cs" />
-     <Compile Include="Assets\Scripts\Systems\GameGUIController.cs" />
      <Compile Include="Assets\Scripts\Systems\GameSystem.cs" />
+     <Compile Include="Assets\SensorEffect.cs" />
      <None Include="Assets\Shader\SpriteOutline.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Unity_GameJam/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
