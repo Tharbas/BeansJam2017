@@ -96,6 +96,7 @@ public class PlayerController : MonoBehaviour {
             {
                 WasTasered = false;
             }
+            return;
         }
 
         float movementHorizontal = 0.0f;
