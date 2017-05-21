@@ -29,6 +29,12 @@ public class GameGuiController : MonoBehaviour {
     private GameObject ScoreScreen;
 
     [SerializeField]
+    private Text textTimeRanOut;
+
+    [SerializeField]
+    private Text textYouGotCaught;
+
+    [SerializeField]
     private Text textScoreRound1Player1;
 
     [SerializeField]
@@ -135,6 +141,17 @@ public class GameGuiController : MonoBehaviour {
 
     public void OnOpenScoreScreen(int scoreCop, int scoreMafioso, int round)
     {
+        if (this.textTimeCount.text == "00:00")
+        {
+            this.textTimeRanOut.gameObject.SetActive(true);
+            this.textYouGotCaught.gameObject.SetActive(false);
+        }
+        else
+        {
+            this.textTimeRanOut.gameObject.SetActive(false);
+            this.textYouGotCaught.gameObject.SetActive(true);
+        }
+
         switch (round)
         {
             case 1:
