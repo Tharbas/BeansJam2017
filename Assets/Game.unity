@@ -4431,6 +4431,11 @@ Prefab:
       propertyPath: gameSystem
       value: 
       objectReference: {fileID: 1537558865}
+    - target: {fileID: 114899150479523760, guid: eb69bb2ee5dd337458e00030577058ea,
+        type: 2}
+      propertyPath: copSensorCooldown
+      value: 
+      objectReference: {fileID: 2011465334}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb69bb2ee5dd337458e00030577058ea, type: 2}
   m_IsPrefabParent: 0
@@ -7961,6 +7966,12 @@ GameObject:
   m_PrefabParentObject: {fileID: 1737637197785542, guid: 3181ba219908f4d48bde64a44fe6b940,
     type: 2}
   m_PrefabInternal: {fileID: 2011465319}
+--- !u!114 &2011465334 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114333409604166022, guid: 3181ba219908f4d48bde64a44fe6b940,
+    type: 2}
+  m_PrefabInternal: {fileID: 2011465319}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &2015238072
 GameObject:
   m_ObjectHideFlags: 0

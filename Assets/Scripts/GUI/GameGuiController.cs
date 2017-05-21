@@ -56,6 +56,9 @@ public class GameGuiController : MonoBehaviour {
     private GameObject buttonStartNextRound;
 
     [SerializeField]
+    private Image copSensorCooldown;
+
+    [SerializeField]
     private GameSystem gameSystem;
 
     private bool isBlinking = false;
@@ -93,6 +96,11 @@ public class GameGuiController : MonoBehaviour {
                 this.OnOpenPauseMenu();
             }
         }
+    }
+
+    public void ReportCopSensorCooldown(float amount)
+    {
+        this.copSensorCooldown.fillAmount = amount;
     }
 
     public void ReportMoneyStashed(int newAmount)
