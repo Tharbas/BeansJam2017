@@ -25,11 +25,47 @@ public class GameGuiController : MonoBehaviour {
     [SerializeField]
     private GameObject pauseMenu;
 
+    [SerializeField]
+    private GameObject ScoreScreen;
+
+    [SerializeField]
+    private Text textScoreRound1Player1;
+
+    [SerializeField]
+    private Text textScoreRound1Player2;
+
+    [SerializeField]
+    private Text textScoreRound2Player1;
+
+    [SerializeField]
+    private Text textScoreRound2Player2;
+
+    [SerializeField]
+    private Text textScoreTotalPlayer1;
+
+    [SerializeField]
+    private Text textScoreTotalPlayer2;
+
+    [SerializeField]
+    private Text textSwitchGamepads;
+
+    [SerializeField]
+    private Text textThankYouForPlaying;
+
+    [SerializeField]
+    private GameObject buttonStartNextRound;
+
+    [SerializeField]
+    private GameSystem gameSystem;
+
     private bool isBlinking = false;
+    private int scorePlayer1 = 0;
+    private int scorePlayer2 = 0;
 
     void Start()
 	{
         this.pauseMenu.SetActive(false);
+        this.ScoreScreen.SetActive(false);
 	}
 
     public void SetTimeLeft(TimeSpan span)
@@ -84,6 +120,58 @@ public class GameGuiController : MonoBehaviour {
     {
         this.pauseMenu.SetActive(true);
         Time.timeScale = 0;
+    }
+
+    public void OnOpenScoreScreen(int scoreCop, int scoreMafioso, int round)
+    {
+        switch (round)
+        {
+            case 1:
+                this.scorePlayer1 += scoreCop;
+                this.scorePlayer2 += scoreMafioso;
+
+                this.textScoreRound1Player1.text = this.scorePlayer1.ToString();
+                this.textScoreRound1Player2.text = this.scorePlayer2.ToString();
+
+                this.textScoreRound2Player1.text = "-";
+                this.textScoreRound2Player2.text = "-";
+
+                this.textScoreTotalPlayer1.text = this.scorePlayer1.ToString();
+                this.textScoreTotalPlayer2.text = this.scorePlayer2.ToString();
+
+                this.textSwitchGamepads.gameObject.SetActive(true);
+                this.textThankYouForPlaying.gameObject.SetActive(false);
+                this.buttonStartNextRound.SetActive(true);
+
+                break;
+            case 2:
+                this.scorePlayer1 += scoreMafioso;
+                this.scorePlayer2 += scoreCop;
+
+                this.textScoreRound2Player1.text = scoreMafioso.ToString();
+                this.textScoreRound2Player2.text = scoreCop.ToString();
+
+                this.textScoreTotalPlayer1.text = this.scorePlayer1.ToString();
+                this.textScoreTotalPlayer2.text = this.scorePlayer2.ToString();
+
+                this.textSwitchGamepads.gameObject.SetActive(false);
+                this.textThankYouForPlaying.gameObject.SetActive(true);
+                this.buttonStartNextRound.SetActive(false);
+
+                break;
+        }
+    }
+
+    public void OnClickScoreScreenQuitGame()
+    {
+        this.ScoreScreen.SetActive(false);
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void OnClickScoreScreenReady()
+    {
+        this.ScoreScreen.SetActive(false);
+        this.gameSystem.StartSecondRound();
     }
 
 }

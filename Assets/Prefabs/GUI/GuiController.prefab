@@ -56,3 +56,15 @@ MonoBehaviour:
   textTimeCount: {fileID: 0}
   textMoneyStashed: {fileID: 0}
   textMoneyCarried: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  ScoreScreen: {fileID: 0}
+  textScoreRound1Player1: {fileID: 0}
+  textScoreRound1Player2: {fileID: 0}
+  textScoreRound2Player1: {fileID: 0}
+  textScoreRound2Player2: {fileID: 0}
+  textScoreTotalPlayer1: {fileID: 0}
+  textScoreTotalPlayer2: {fileID: 0}
+  textSwitchGamepads: {fileID: 0}
+  textThankYouForPlaying: {fileID: 0}
+  buttonStartNextRound: {fileID: 0}
+  gameSystem: {fileID: 0}

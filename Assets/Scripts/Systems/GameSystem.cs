@@ -449,5 +449,10 @@ public class GameSystem : MonoBehaviour
         }
     }
 
+    public void StartSecondRound()
+    {
+
+    }
+
 
 }
