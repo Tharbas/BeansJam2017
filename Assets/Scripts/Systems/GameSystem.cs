@@ -50,6 +50,8 @@ public class GameSystem : MonoBehaviour
 
     public int MaxTaserBullets = 1;
     bool firstStart;
+    public int TaserNpcPunishScore = 100;
+    public float MafiosoTaserTime = 2.5f;
 
     // Use this for initialization
     void Start()
@@ -180,8 +182,7 @@ public class GameSystem : MonoBehaviour
                 else
                 {
                     Mafioso.WantToCollect = false;
-                    safe.SavedMoney += Mafioso.Score;
-                    Mafioso.Score = 0;
+                    safe.StashMoney(Mafioso.Score, Mafioso);
                 }
             }
         }
@@ -288,12 +289,22 @@ public class GameSystem : MonoBehaviour
             }
             if (!hit)
             {
+                if (Vector3.Distance(Mafioso.transform.position, bullet.transform.position) < 10)
+                {
+                    hit = true;
+                    Mafioso.WasTasered = true;
+                    Mafioso.TaserTime = MafiosoTaserTime;
+                    Instantiate(StunEffectPrefab, Mafioso.transform.position + new Vector3(0, 0, 10), Quaternion.identity);
+                }
+            }
+            if (!hit)
+            {
                 foreach (AIEntity npc in npcs)
                 {
                     if (Vector3.Distance(npc.transform.position, bullet.transform.position) < 10)
                     {
                         hit = true;
-                        bulletC.Owner.Score -= 200;
+                        bulletC.Owner.Score -= TaserNpcPunishScore;
                         npc.CurrentSate = AIStates.Stunned;
                         npc.ActionTimer = npc.MaxIdleTime;
                         Instantiate(StunEffectPrefab, npc.transform.position + new Vector3(0, 0, 10), Quaternion.identity);
@@ -301,6 +312,7 @@ public class GameSystem : MonoBehaviour
                     }
                 }
             }
+
             if ((Mathf.Abs(bullet.transform.position.x) > 500 ||
                  Mathf.Abs(bullet.transform.position.z) > 300))
             {
