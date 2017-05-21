@@ -89,12 +89,21 @@ public class MainMenuGuiController : MonoBehaviour
     [SerializeField]
     private AudioClip buttonBeepClip;
 
+    [SerializeField]
+    private AudioSource audioSourceBgm;
+
+    [SerializeField]
+    private AudioClip bgmClip;
+
 
     public void Start ()
     {
         this.HideAllWindows();
         this.confirmControlsButton.SetActive(false);
         this.mainMenuWindow.SetActive(true);
+
+        this.audioSourceBgm.clip = this.bgmClip;
+        this.audioSourceBgm.Play();
 
         PlayerPrefs.DeleteKey(this.prefKeyCop);
         PlayerPrefs.DeleteKey(this.prefKeyMafioso);
