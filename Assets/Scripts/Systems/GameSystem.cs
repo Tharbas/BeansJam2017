@@ -149,7 +149,7 @@ public class GameSystem : MonoBehaviour
             }
             else if (shop.UpdateTimer <= 0)
             {
-                shop.UpdateTimer = UnityEngine.Random.Range(ShopUpdateTimer * 0.33f, ShopUpdateTimer * 1.25f);
+                shop.UpdateTimer = UnityEngine.Random.Range(ShopUpdateTimer * 0.75f, ShopUpdateTimer * 1.25f);
                 if (shop.WasRobbed)
                 {
                     // ALERT !!
@@ -182,7 +182,7 @@ public class GameSystem : MonoBehaviour
                     {
                         Mafioso.WantToCollect = false;
                         shop.WasRobbed = true;
-                        shop.UpdateTimer = ShopUpdateTimer * 0.25f;
+                        shop.UpdateTimer = ShopUpdateTimer * 0.7f;
                     }
                 }
             }
