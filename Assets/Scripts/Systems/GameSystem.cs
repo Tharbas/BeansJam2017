@@ -173,9 +173,9 @@ public class GameSystem : MonoBehaviour
                     playerPos += (lookDir * 2);
 
                     RaycastHit hitinfo;
-                    if (Physics.Linecast(shop.transform.position, playerPos, out hitinfo))
+                    if (Physics.Linecast(shop.transform.position, playerPos, out hitinfo, 1 << 8))
                     {
-                        //Debug.Log("Blocked! by " + hitinfo.transform.gameObject.name);
+                        Debug.Log("Blocked! by " + hitinfo.transform.gameObject.name);
                     }
                     else
                     {
