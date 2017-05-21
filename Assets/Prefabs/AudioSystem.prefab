@@ -186,3 +186,17 @@ MonoBehaviour:
     randomVolume: 0.1
     randomPitch: 0.1
     loop: 0
+  - name: InGame_MoneyCollect
+    clip: {fileID: 8300000, guid: bd56b33aedfc34844bfaad557e916aec, type: 3}
+    volume: 0.409
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+  - name: InGame_MoneyDropped
+    clip: {fileID: 8300000, guid: 228d1fbe507f50f488d01351a441dbdb, type: 3}
+    volume: 0.409
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0

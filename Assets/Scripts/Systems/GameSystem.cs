@@ -154,7 +154,6 @@ public class GameSystem : MonoBehaviour
                 {
                     // ALERT !!
                     Mafioso.Score += shop.CurrentValue;
-                    audioSystem.PlaySound("InGame_MoneyCollect");
                     shop.CurrentValue = 0;
                     shop.WasRobbed = false;
                 }
@@ -183,6 +182,7 @@ public class GameSystem : MonoBehaviour
                         Mafioso.WantToCollect = false;
                         shop.WasRobbed = true;
                         shop.UpdateTimer = ShopUpdateTimer * 0.7f;
+                        audioSystem.PlaySound("InGame_MoneyCollect");
                     }
                 }
             }
@@ -209,6 +209,7 @@ public class GameSystem : MonoBehaviour
                 else
                 {
                     Mafioso.WantToCollect = false;
+                    audioSystem.PlaySound("InGame_MoneyDropped");
                     safe.StashMoney(Mafioso.Score, Mafioso);
                 }
             }
@@ -400,6 +401,7 @@ public class GameSystem : MonoBehaviour
                             targetPlayer.ActionTimer = 2f; // sfx length
                             audioSystem.PlaySound("Scanner");
                             activeEffects.Add(Instantiate(ScanEffectPrefab, target.transform.position + new Vector3(0, 0, 10), Quaternion.identity));
+                            audioSystem.PlaySound("InGame_PoliceSiren");
                         }
                     }
                 }
