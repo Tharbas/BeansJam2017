@@ -52,6 +52,9 @@ public class AudioSystem : MonoBehaviour {
 
 	public static AudioSystem instance;
 
+    [SerializeField]
+    private Transform audioSourcesParent;
+
 	[SerializeField]
 	public sound[] sounds = new sound[10];
 
@@ -68,6 +71,7 @@ public class AudioSystem : MonoBehaviour {
 		for (int i = 0; i < sounds.Length; i++) {
 			GameObject _go = new GameObject ("Sound_" + i + "_" + sounds [i].name);
 			AudioSource _audiosource = _go.AddComponent<AudioSource> ();
+            _audiosource.transform.parent = this.audioSourcesParent;
 			sounds [i].SetSource (_audiosource);
 		}
 		//PlaySound ("Atmo_Loop"); nur zum testen ob überhaupt was abspielt

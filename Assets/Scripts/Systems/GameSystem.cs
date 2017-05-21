@@ -41,6 +41,9 @@ public class GameSystem : MonoBehaviour
     public GameObject ColliderRoot;
     private List<BoxCollider> walls;
 
+    [SerializeField]
+    private GameGuiController guiController;
+
     private bool startupPhase1 = true;
     private bool startupPhase2 = true;
     private bool startupPhase3 = true;
@@ -75,6 +78,7 @@ public class GameSystem : MonoBehaviour
         {
             FindObjectOfType<AudioSystem>().PlaySound("Atmo_Loop");
             npcs.AddRange(FindObjectsOfType<AIEntity>());
+            firstStart = false;
         }
 
         switch (CurrentGameState)
@@ -245,8 +249,8 @@ public class GameSystem : MonoBehaviour
         if (timerRunnin && roundTime > 0.0f)
         {
             roundTime -= Time.deltaTime;
-            //TimeSpan st = TimeSpan.FromSeconds(roundTime);
-            //TimeLabel.text = "Time Left : " + string.Format("{0:00}:{1:00}", st.Minutes, st.Seconds);
+            TimeSpan st = TimeSpan.FromSeconds(roundTime);
+            this.guiController.SetTimeLeft(st);
         }
         else
         {
