@@ -1229,6 +1229,7 @@ RectTransform:
   - {fileID: 601772841}
   - {fileID: 755970710}
   - {fileID: 1606846716}
+  - {fileID: 776622686}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1546,8 +1547,8 @@ MonoBehaviour:
   CurrentGameState: 0
   TimeLabel: {fileID: 0}
   Mafioso: {fileID: 722784399}
-  startupObjects: {fileID: 0}
-  startupArrow: {fileID: 0}
+  startupObjects: {fileID: 776622687}
+  startupArrow: {fileID: 1554097853}
 --- !u!114 &220223654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1566,102 +1567,133 @@ MonoBehaviour:
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
+    loop: 0
   - name: BodyDeath_01
     clip: {fileID: 8300000, guid: d437fc8121b42ee4aa3761b8f2984472, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
+    loop: 0
   - name: BodyDeath_02
     clip: {fileID: 8300000, guid: ac5fc88113a9293478daadb4328f4db4, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
+    loop: 0
   - name: BodyDeath_03
     clip: {fileID: 8300000, guid: 70cf28d85c21d254a96d8678817a240b, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
+    loop: 0
   - name: BodyImpact_01
     clip: {fileID: 8300000, guid: 47dbe7cbe8e5aa94aaa782280bd7d6eb, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
+    loop: 0
   - name: BodyImpact_02
     clip: {fileID: 8300000, guid: fba08ef97f038734d8dd7b7b4402fbf7, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
+    loop: 0
   - name: BodyImpact_03
     clip: {fileID: 8300000, guid: a459bbde3e1b750479b11deb77512539, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
+    loop: 0
   - name: BodyImpact_04
     clip: {fileID: 8300000, guid: b5c83ec3856a48d40b1829452c492bc1, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
+    loop: 0
   - name: BodyImapct_05
     clip: {fileID: 8300000, guid: c72bdcd2b1f992a4687fcb067b408f47, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
+    loop: 0
   - name: BodyImpact_06
     clip: {fileID: 8300000, guid: 20b6c659fa0659d4da99676f66642818, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
+    loop: 0
   - name: DroneActivated
     clip: {fileID: 8300000, guid: 5e038bf42120ac54aae8684fe665d76e, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
+    loop: 0
   - name: PlasmaShot_01
     clip: {fileID: 8300000, guid: dbf093ea9f0a78041be5e9b77b90c6c1, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
+    loop: 0
   - name: PlasmaShot_02
     clip: {fileID: 8300000, guid: 9842ef4f61ef90844bdc7677851972b8, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
+    loop: 0
   - name: PlasmaShot_03
     clip: {fileID: 8300000, guid: dde5b5e736b6b8243a27037d70f7581c, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
+    loop: 0
   - name: PlasmaShot_04
     clip: {fileID: 8300000, guid: 853e56683ad37304f8f9fda5dfc9ee06, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
+    loop: 0
   - name: Scanner
     clip: {fileID: 8300000, guid: 26d98b7b1febe9c4a8e89eef8bfc59f0, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
+    loop: 0
   - name: SmokeGrenade
     clip: {fileID: 8300000, guid: 4a4a49fa1e516704e8923ffa029473a3, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
+    loop: 0
+  - name: RobotCountdown
+    clip: {fileID: 8300000, guid: 3744482edd391bb429e20d95adc2e8f9, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+  - name: InGame_PoliceSiren
+    clip: {fileID: 8300000, guid: c24b5e6c10ffa01448e9ae4f87de2220, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
 --- !u!4 &220223656 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4992217665537620, guid: 1181eeb33e1272c41b588935fd8ac101,
@@ -5742,6 +5774,116 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 765396481}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &776622685
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 170246406}
+    m_Modifications:
+    - target: {fileID: 224850765272009072, guid: c023648661fae6d45afcaef4c87dc4ad,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224850765272009072, guid: c023648661fae6d45afcaef4c87dc4ad,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224850765272009072, guid: c023648661fae6d45afcaef4c87dc4ad,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224850765272009072, guid: c023648661fae6d45afcaef4c87dc4ad,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224850765272009072, guid: c023648661fae6d45afcaef4c87dc4ad,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224850765272009072, guid: c023648661fae6d45afcaef4c87dc4ad,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224850765272009072, guid: c023648661fae6d45afcaef4c87dc4ad,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224850765272009072, guid: c023648661fae6d45afcaef4c87dc4ad,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224850765272009072, guid: c023648661fae6d45afcaef4c87dc4ad,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224850765272009072, guid: c023648661fae6d45afcaef4c87dc4ad,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224850765272009072, guid: c023648661fae6d45afcaef4c87dc4ad,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224850765272009072, guid: c023648661fae6d45afcaef4c87dc4ad,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224850765272009072, guid: c023648661fae6d45afcaef4c87dc4ad,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224850765272009072, guid: c023648661fae6d45afcaef4c87dc4ad,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224850765272009072, guid: c023648661fae6d45afcaef4c87dc4ad,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224850765272009072, guid: c023648661fae6d45afcaef4c87dc4ad,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224850765272009072, guid: c023648661fae6d45afcaef4c87dc4ad,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224850765272009072, guid: c023648661fae6d45afcaef4c87dc4ad,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c023648661fae6d45afcaef4c87dc4ad, type: 2}
+  m_IsPrefabParent: 0
+--- !u!224 &776622686 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224850765272009072, guid: c023648661fae6d45afcaef4c87dc4ad,
+    type: 2}
+  m_PrefabInternal: {fileID: 776622685}
+--- !u!1 &776622687 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1900563731182960, guid: c023648661fae6d45afcaef4c87dc4ad,
+    type: 2}
+  m_PrefabInternal: {fileID: 776622685}
 --- !u!1 &776644310
 GameObject:
   m_ObjectHideFlags: 0
@@ -11512,15 +11654,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114733933667601520, guid: 18948731f2debdf469cf57656a1e5899,
-        type: 2}
-      propertyPath: HighlightDuration
-      value: 0.25
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114410356342268400, guid: 18948731f2debdf469cf57656a1e5899, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18948731f2debdf469cf57656a1e5899, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1554097853 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1834930824956450, guid: 18948731f2debdf469cf57656a1e5899,
+    type: 2}
+  m_PrefabInternal: {fileID: 1554097852}
 --- !u!1 &1557502021
 GameObject:
   m_ObjectHideFlags: 0

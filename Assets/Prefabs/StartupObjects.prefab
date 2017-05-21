@@ -217,11 +217,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: fe0b11f326ee5f04b9deeda35ecc30e7, type: 3}
-    m_FontSize: 50
+    m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 80
+    m_MaxSize: 100
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -230,7 +230,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Cop players!
 
-    Close your eyes until you hear the siren!'
+    Close your eyes until
+
+    you hear the siren!'
 --- !u!114 &114183065763054092
 MonoBehaviour:
   m_ObjectHideFlags: 1
