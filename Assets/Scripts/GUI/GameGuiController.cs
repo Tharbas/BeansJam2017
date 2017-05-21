@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameGuiController : MonoBehaviour {
 
@@ -21,11 +22,14 @@ public class GameGuiController : MonoBehaviour {
     [SerializeField]
     private Text textMoneyCarried;
 
+    [SerializeField]
+    private GameObject pauseMenu;
+
     private bool isBlinking = false;
 
     void Start()
 	{
-		
+        this.pauseMenu.SetActive(false);
 	}
 
     public void SetTimeLeft(TimeSpan span)
@@ -40,6 +44,21 @@ public class GameGuiController : MonoBehaviour {
         }
     }
 
+    public void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.Escape) || Input.GetButtonUp("PauseGame"))
+        {
+            if (this.pauseMenu.activeInHierarchy)
+            {
+                this.OnClickResumeGame();
+            }
+            else
+            {
+                this.OnOpenPauseMenu();
+            }
+        }
+    }
+
     public void ReportMoneyStashed(int newAmount)
     {
         this.textMoneyStashed.text = newAmount.ToString() + " $";
@@ -48,6 +67,23 @@ public class GameGuiController : MonoBehaviour {
     public void ReportMoneyCollected(int newAmount)
     {
         this.textMoneyCarried.text = newAmount.ToString() + " $";
+    }
+
+    public void OnClickQuitGame()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void OnClickResumeGame()
+    {
+        this.pauseMenu.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void OnOpenPauseMenu()
+    {
+        this.pauseMenu.SetActive(true);
+        Time.timeScale = 0;
     }
 
 }
