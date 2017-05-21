@@ -58,8 +58,11 @@ public class GameSystem : MonoBehaviour
         this.startupTimer = 0.0f;
         this.startupObjects.SetActive(false);
         this.startupArrow.SetActive(false);
-        TimeSpan st = TimeSpan.FromSeconds(roundTime);
-        this.guiController.SetTimeLeft(st);
+        if (this.guiController)
+        {
+            TimeSpan st = TimeSpan.FromSeconds(roundTime);
+            this.guiController.SetTimeLeft(st);
+        }
         shops = new List<ShopHotspotComponent>();
         shops.AddRange(FindObjectsOfType<ShopHotspotComponent>());
         safe = FindObjectOfType<MoneySafeComponent>();
@@ -79,8 +82,11 @@ public class GameSystem : MonoBehaviour
         if (firstStart)
         {
             FindObjectOfType<AudioSystem>().PlaySound("Atmo_Loop");
-            npcs.AddRange(FindObjectsOfType<AIEntity>());
             firstStart = false;
+        }
+        if (npcs.Count == 0)
+        {
+            npcs.AddRange(FindObjectsOfType<AIEntity>());
         }
 
         switch (CurrentGameState)
