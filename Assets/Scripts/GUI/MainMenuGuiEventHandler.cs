@@ -49,6 +49,7 @@ public class MainMenuGuiEventHandler : MonoBehaviour, IPointerClickHandler
                 break;
             case "Button_ErrorMessage_Back":
                 this.guiController.HideWindow(MainMenuGuiController.WindowTypes.ErrorMessage);
+                this.guiController.ShowWindow(MainMenuGuiController.WindowTypes.MainMenu);
                 break;
             case "Button_Controls":
                 this.guiController.HideWindow(MainMenuGuiController.WindowTypes.ControlsMafioso);
