@@ -58,6 +58,7 @@ public class GameSystem : MonoBehaviour
     bool firstStart;
     public int TaserNpcPunishScore = 100;
     public float MafiosoTaserTime = 2.5f;
+    public int WrongArrestPunishScore = 500;
 
     // Use this for initialization
     void Start()
@@ -310,7 +311,7 @@ public class GameSystem : MonoBehaviour
                 {
                     hit = true;
                     Mafioso.WasTasered = true;
-                    Mafioso.TaserTime = MafiosoTaserTime;
+                    Mafioso.ActionTimer = MafiosoTaserTime;
                     Instantiate(StunEffectPrefab, Mafioso.transform.position + new Vector3(0, 0, 10), Quaternion.identity);
                 }
             }
@@ -375,11 +376,50 @@ public class GameSystem : MonoBehaviour
                     if (targetPlayer != null && targetPlayer.PlayerType == PlayerController.PlayerTypes.Mafioso)
                     {
                         targetPlayer.WasTasered = true;
-                        targetPlayer.TaserTime = 2f; // sfx length
+                        targetPlayer.ActionTimer = 2f; // sfx length
                         audioSystem.PlaySound("Scanner");
                         Instantiate(ScanEffectPrefab, target.transform.position + new Vector3(0, 0, 10), Quaternion.identity);                        
                     }
                 }
+            }
+            if (cop.WantToSensor)
+            {
+                //cop.WantToSensor = false;
+                //cop.ActionTimer = 3f;
+                //cop.SensorVisible = true;
+                //cop.ArrowOverHead.SetActive(true);
+            }
+            if  (cop.WantToArrest)
+            {
+                cop.WantToScan = false;
+                GameObject target = cop.GetComponent<PlayerActionsComponent>().CurrentHighlightedTarget;
+                if (target != null)
+                {
+                    PlayerController targetPlayer = target.GetComponent<PlayerController>();
+                    if (targetPlayer != null && targetPlayer.PlayerType == PlayerController.PlayerTypes.Mafioso)
+                    {
+                        cop.Score += targetPlayer.Score;
+                        targetPlayer.Score = 0;
+                        SwitchGameState(GameState.GameOver);
+                    }
+                    AIEntity targetAI = target.GetComponent<AIEntity>();
+                    if (targetAI != null)
+                    {
+                        cop.Score -= WrongArrestPunishScore;
+                    }
+                }
+            }
+
+
+            if(cop.SensorVisible ||true)
+            {
+                //cop.ArrowOverHead.SetActive(true);
+                //Vector3 temp = new Vector3(movementVector.x, -movementVector.z, movementVector.y);
+                Vector3 targetPos = new Vector3(Mafioso.transform.position.x,Mafioso.transform.position.z, Mafioso.transform.position.y);
+                Vector3 copPos = new Vector3(cop.transform.position.x, cop.transform.position.z, cop.transform.position.y);
+                float angle = Vector3.Angle(targetPos, copPos);
+                Debug.Log(cop.ArrowOverHead.transform.rotation.eulerAngles);
+                cop.ArrowOverHead.transform.rotation = Quaternion.AngleAxis(90f, Vector3.right) * Quaternion.AngleAxis(angle, Vector3.forward);
             }
         }
     }

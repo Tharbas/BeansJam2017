@@ -63,9 +63,11 @@ public class PlayerController : MonoBehaviour {
     public bool WantToScan;
     public bool WantToArrest;
     public bool WantToSensor;
+    public bool SensorVisible;
 
     public bool WasTasered;
-    public float TaserTime;
+    public float ActionTimer;
+    public GameObject ArrowOverHead;
 
     private GameSystem gameSystem;
 
@@ -87,7 +89,10 @@ public class PlayerController : MonoBehaviour {
         NavMeshHit hit;
         NavMesh.SamplePosition(startPos, out hit, 50, 1);
         transform.position = hit.position;
-
+        if (ArrowOverHead)
+        {
+            ArrowOverHead.SetActive(false);
+        }
         this.animator.SetInteger("WalkDirection", 0);
 	}
 	
@@ -105,8 +110,8 @@ public class PlayerController : MonoBehaviour {
 
         if (WasTasered)
         {
-            TaserTime -= Time.deltaTime;
-            if (TaserTime <= 0f)
+            ActionTimer -= Time.deltaTime;
+            if (ActionTimer <= 0f)
             {
                 WasTasered = false;
             }
