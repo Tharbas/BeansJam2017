@@ -24,6 +24,7 @@ public class MoneySafeComponent : MonoBehaviour {
         }
         else
         {
+            Mafioso = mafioso;
             timer = SaveTimer;
             saveAmount = amount;
         }

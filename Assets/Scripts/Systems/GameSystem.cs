@@ -186,6 +186,8 @@ public class GameSystem : MonoBehaviour
                 }
             }
         }
+        guiController.ReportMoneyCollected(Mafioso.Score);
+        guiController.ReportMoneyStashed(safe.SavedMoney);
     }
 
     void SwitchGameState(GameState newState)

@@ -66,6 +66,8 @@ public class PlayerController : MonoBehaviour {
     public bool WasTasered;
     public float TaserTime;
 
+    private GameSystem gameSystem;
+
     public void Start ()
     {
         switch (this.PlayerType)
@@ -78,6 +80,7 @@ public class PlayerController : MonoBehaviour {
                 this.GetComponentInChildren<Animator>().runtimeAnimatorController = FindObjectOfType<AISpawner>().GetRandomAnimatorController();
                 break;
         }
+        gameSystem = FindObjectOfType<GameSystem>();
 
         this.animator.SetInteger("WalkDirection", 0);
 	}
@@ -89,6 +92,11 @@ public class PlayerController : MonoBehaviour {
     
 	public void Update ()
     {
+        if (this.PlayerType == PlayerTypes.Cop && gameSystem.CurrentGameState == GameState.WaitingToStart)
+        {
+            return;
+        }  
+
         if (WasTasered)
         {
             TaserTime -= Time.deltaTime;
@@ -98,7 +106,7 @@ public class PlayerController : MonoBehaviour {
             }
             return;
         }
-
+        
         float movementHorizontal = 0.0f;
         float movementVertical = 0.0f;
 
