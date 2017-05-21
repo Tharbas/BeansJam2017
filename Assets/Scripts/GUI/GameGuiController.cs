@@ -32,7 +32,7 @@ public class GameGuiController : MonoBehaviour {
     {
         this.textTimeCount.text =  string.Format("{0:00}:{1:00}", span.Minutes, span.Seconds);
 
-        if(!this.isBlinking && span.Seconds <= this.startTimeBlink)
+        if(!this.isBlinking && span.TotalSeconds <= this.startTimeBlink)
         {
             this.isBlinking = true;
             this.textTimeLeft.gameObject.GetComponent<Animator>().SetTrigger("StartBlink");
