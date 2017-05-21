@@ -532,6 +532,12 @@ public class GameSystem : MonoBehaviour
             GameObject.Destroy(effect);
         }
 
+        foreach (ShopHotspotComponent shop in shops)
+        {
+            shop.CurrentValue = 0;
+            shop.WasRobbed = false;
+        }
+
         this.timerRunnin = true;
         this.roundTime = this.OriginalRoundTime;
 
