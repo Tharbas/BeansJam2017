@@ -211,12 +211,12 @@ public class MainMenuGuiController : MonoBehaviour
     {
         if (this.chooseControlsWindow.activeInHierarchy)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             {
                 this.keyboardSlider.MoveSliderInDirection(ControlsSliderComponent.SliderPositions.Left);
             }
 
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.S))
             {
                 this.keyboardSlider.MoveSliderInDirection(ControlsSliderComponent.SliderPositions.Right);
             }
