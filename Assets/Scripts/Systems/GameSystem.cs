@@ -445,6 +445,7 @@ public class GameSystem : MonoBehaviour
             if (cop.ActionCooldown > 0f)
             {
                 cop.ActionCooldown -= Time.deltaTime;
+                guiController.ReportCopSensorCooldown(1f - (cop.ActionCooldown / CopSensorCooldown));
             }
         }
     }
