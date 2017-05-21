@@ -7,6 +7,9 @@ using System;
 public class GameGuiController : MonoBehaviour {
 
     [SerializeField]
+    private float startTimeBlink;
+
+    [SerializeField]
     private Text textTimeLeft;
 
     [SerializeField]
@@ -18,6 +21,8 @@ public class GameGuiController : MonoBehaviour {
     [SerializeField]
     private Text textMoneyCarried;
 
+    private bool isBlinking = false;
+
     void Start()
 	{
 		
@@ -25,7 +30,14 @@ public class GameGuiController : MonoBehaviour {
 
     public void SetTimeLeft(TimeSpan span)
     {
-        //TimeLabel.text = "Time Left : " + string.Format("{0:00}:{1:00}", st.Minutes, st.Seconds);
+        this.textTimeCount.text =  string.Format("{0:00}:{1:00}", span.Minutes, span.Seconds);
+
+        if(!this.isBlinking && span.Seconds <= this.startTimeBlink)
+        {
+            this.isBlinking = true;
+            this.textTimeLeft.gameObject.GetComponent<Animator>().SetTrigger("StartBlink");
+            this.textTimeCount.gameObject.GetComponent<Animator>().SetTrigger("StartBlink");
+        }
     }
 
 }
