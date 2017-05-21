@@ -47,7 +47,7 @@ public class PlayerActionsComponent : MonoBehaviour
 
     private AISystem aiSystem;
 
-    private GameObject currentHighlightedTarget;
+    public GameObject CurrentHighlightedTarget;
 
     private bool hasSmokeBomb = true;
 
@@ -190,11 +190,11 @@ public class PlayerActionsComponent : MonoBehaviour
         RaycastHit hitinfo;
         bool hit = Physics.Raycast(playerController.transform.position, lookDir, out hitinfo);
 
-        if (hit)
+        if (hit && hitinfo.distance < 50)
         {
-            GameObject hitTarget = hitinfo.collider.gameObject;
+            CurrentHighlightedTarget = hitinfo.collider.gameObject;
 
-            HighlightComponent highlighter = hitTarget.GetComponent<HighlightComponent>();
+            HighlightComponent highlighter = CurrentHighlightedTarget.GetComponent<HighlightComponent>();
             if (highlighter)
             {
                 highlighter.DoHighlight();
@@ -202,7 +202,7 @@ public class PlayerActionsComponent : MonoBehaviour
         }
         else
         {
-            this.currentHighlightedTarget = null;
+            this.CurrentHighlightedTarget = null;
         }
     }
 
@@ -214,16 +214,16 @@ public class PlayerActionsComponent : MonoBehaviour
                 switch (action)
                 {
                     case PossibleActions.ArrestPerson:
-                        Debug.Log("ArrestPerson");
+                        playerController.WantToArrest = true;
                         break;
                     case PossibleActions.ScanPerson:
-                        Debug.Log("ScanPerson");
+                        playerController.WantToScan = true;
                         break;
                     case PossibleActions.Shoot:
-                        Debug.Log("Shoot");
+                        playerController.WantToTaser = true;
                         break;
                     case PossibleActions.UseSensors:
-                        Debug.Log("UseSensors");
+                        playerController.WantToSensor = true;
                         break;
                 }
                 break;

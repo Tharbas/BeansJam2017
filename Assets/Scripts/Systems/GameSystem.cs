@@ -40,6 +40,8 @@ public class GameSystem : MonoBehaviour
     private bool startupPhase2 = true;
     private bool startupPhase3 = true;
 
+    bool firstStart;
+
     // Use this for initialization
     void Start()
     {
@@ -47,15 +49,20 @@ public class GameSystem : MonoBehaviour
         this.startupTimer = 0.0f;
         this.startupObjects.SetActive(false);
         this.startupArrow.SetActive(false);
-        FindObjectOfType<AudioSystem>().PlaySound("Atmo_Loop");
         shops = new List<ShopHotspotComponent>();
         shops.AddRange(FindObjectsOfType<ShopHotspotComponent>());
         safe = FindObjectOfType<MoneySafeComponent>();
+        firstStart = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (firstStart)
+        {
+            FindObjectOfType<AudioSystem>().PlaySound("Atmo_Loop");
+        }
+
         switch (CurrentGameState)
         {
             case GameState.WaitingToStart:
@@ -73,6 +80,7 @@ public class GameSystem : MonoBehaviour
                 break;
         }
         UpdateShops();
+        ProcessCops();
     }
 
     void UpdateShops()
@@ -222,14 +230,54 @@ public class GameSystem : MonoBehaviour
         if (timerRunnin && roundTime > 0.0f)
         {
             roundTime -= Time.deltaTime;
-            TimeSpan st = TimeSpan.FromSeconds(roundTime);
-            TimeLabel.text = "Time Left : " + string.Format("{0:00}:{1:00}", st.Minutes, st.Seconds);
+            //TimeSpan st = TimeSpan.FromSeconds(roundTime);
+            //TimeLabel.text = "Time Left : " + string.Format("{0:00}:{1:00}", st.Minutes, st.Seconds);
         }
         else
         {
             timerRunnin = false;
             Debug.Log("Game Over");
             CurrentGameState = GameState.GameOver;
+        }
+    }
+
+    public GameObject StunEffectPrefab;
+    public GameObject BulletPrefab;
+
+    private void ProcessCops()
+    {
+        // - move
+        List<PlayerController> cops = new List<PlayerController>();
+        foreach (PlayerController cop in FindObjectsOfType<PlayerController>())
+        {
+            if (cop.PlayerType == PlayerController.PlayerTypes.Cop)
+            {
+                cops.Add(cop);
+            }
+        }
+        
+
+        //--
+
+        foreach (PlayerController cop in cops)
+        {
+            if (cop.WantToTaser)
+            {
+                cop.WantToTaser = false;
+                GameObject target = cop.GetComponent<PlayerActionsComponent>().CurrentHighlightedTarget;
+                if (target != null)
+                {
+                    AIEntity aiTarget = target.GetComponent<AIEntity>();
+                    if (aiTarget != null)
+                    {
+                        cop.Score -= 200;
+                        aiTarget.CurrentSate = AIStates.Stunned;
+                        aiTarget.ActionTimer = aiTarget.MaxIdleTime;
+                        GameObject bullet = Instantiate(BulletPrefab, aiTarget.transform.position + (Vector3.forward * 6) , Quaternion.identity);
+                        bullet.GetComponent<BulletComponent>().Direction = cop.CurrentMovementVector.normalized;
+                    }
+                }
+            }
         }
     }
 

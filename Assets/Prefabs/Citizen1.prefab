@@ -162,7 +162,7 @@ MonoBehaviour:
   MinIdleTime: 0
   MaxIdleTime: 10
   ActionTimer: 0
-  RandomMovementPercentage: 0.01
+  RandomMovementPercentage: 0.0025
 --- !u!114 &114946246938411988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -210,7 +210,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 5
-  m_Speed: 69
+  m_Speed: 35
   m_Acceleration: 200
   avoidancePriority: 50
   m_AngularSpeed: 2000

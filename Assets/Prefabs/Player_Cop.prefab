@@ -71,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1782527921994180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.37, y: 1, z: 0}
+  m_LocalPosition: {x: -42.1, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4628055529386468}
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerType: 0
-  movementspeed: 100
+  movementspeed: 50
   verticalAxisInputKeyboard: Vertical
   horizontalAxisInputKeyboard: Horizontal
   verticalAxisInputController1: Vertical_Controller1
@@ -250,6 +250,12 @@ MonoBehaviour:
   prefValueDelimiter: 124
   animator: {fileID: 95875918156024074}
   CurrentMovementVector: {x: 0, y: 0, z: 0}
+  Score: 0
+  WantToCollect: 0
+  WantToTaser: 0
+  WantToScan: 0
+  WantToArrest: 0
+  WantToSensor: 0
 --- !u!114 &114298401181611346
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -269,6 +275,7 @@ MonoBehaviour:
   audiosource: {fileID: 82699729933853122}
   audioClipSmokeBomb: {fileID: 0}
   smokeBombRadius: 0
+  CurrentHighlightedTarget: {fileID: 0}
 --- !u!114 &114701191686318176
 MonoBehaviour:
   m_ObjectHideFlags: 1

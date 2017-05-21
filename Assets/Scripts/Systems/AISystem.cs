@@ -10,6 +10,7 @@ public enum AIStates
     WaitingInLine,
     RandomMovement,
     Fleeing,
+    Stunned,
 }
 
 public class AISystem : MonoBehaviour {
@@ -23,7 +24,7 @@ public class AISystem : MonoBehaviour {
 	void Start () {
         npcs = new List<AIEntity>();
         npcs.AddRange(Component.FindObjectsOfType<AIEntity>());
-
+        
         waypoints = new List<WaypointComponent>();
         waypoints.AddRange(Component.FindObjectsOfType<WaypointComponent>());
 
@@ -59,13 +60,17 @@ public class AISystem : MonoBehaviour {
         foreach (AIEntity npc in npcs)
         {
             NavMeshAgent agent = npc.GetComponent<NavMeshAgent>();
-            if (npc.CurrentSate == AIStates.Fleeing)
+            if (npc.CurrentSate == AIStates.Stunned)
             {
-                agent.speed = 69 + (npc.ActionTimer * 20);     
+                agent.speed = 0f;
+            }
+            else if (npc.CurrentSate == AIStates.Fleeing)
+            {
+                agent.speed = 35 + (npc.ActionTimer * 10);     
             }
             else
             {
-                agent.speed = Mathf.Clamp(69 + Random.Range(-1f,1f), 5f, 85f);
+                agent.speed = Mathf.Clamp(35 + Random.Range(-1f,1f), 5f, 85f);
             }
 
             if (npc.CurrentSate == AIStates.WaitingInLine || npc.CurrentSate == AIStates.Fleeing)

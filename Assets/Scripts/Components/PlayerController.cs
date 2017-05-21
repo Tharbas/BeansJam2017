@@ -77,7 +77,12 @@ public class PlayerController : MonoBehaviour {
     private MoneySafeComponent cachedMoneySafe;
     public int Score;
     public bool WantToCollect;
-    
+
+    public bool WantToTaser;
+    public bool WantToScan;
+    public bool WantToArrest;
+    public bool WantToSensor;
+
     public void Start ()
     {
         switch (this.PlayerType)
