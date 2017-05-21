@@ -200,3 +200,10 @@ MonoBehaviour:
     randomVolume: 0.1
     randomPitch: 0.1
     loop: 0
+  - name: loop
+    clip: {fileID: 8300000, guid: 16a3184eb89238a4b9eb5e7df38bcb9a, type: 3}
+    volume: 0.3
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 1

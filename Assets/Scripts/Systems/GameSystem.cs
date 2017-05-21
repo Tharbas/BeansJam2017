@@ -113,6 +113,7 @@ public class GameSystem : MonoBehaviour
         if (firstStart)
         {
             audioSystem.PlaySound("Atmo_Loop");
+            audioSystem.PlaySound("loop");
             cops = new List<PlayerController>();
             foreach (PlayerController cop in FindObjectsOfType<PlayerController>())
             {
