@@ -21,6 +21,8 @@ public class sound : System.Object
 	[Range(0f, 0.5f)]
 	public float randomPitch = 0.1f;
 
+    public bool loop = false;
+
 	private AudioSource source;
 
 
@@ -34,6 +36,7 @@ public class sound : System.Object
 
 	public void Play()
 	{
+        source.loop = this.loop;
 		source.volume = volume * (1 + Random.Range (-randomVolume / 2f, randomVolume / 2f));
 		source.pitch = pitch * (1 + Random.Range (-randomPitch / 2f, randomPitch / 2f));
 		source.Play ();
