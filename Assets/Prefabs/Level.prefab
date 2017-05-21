@@ -416,8 +416,10 @@ MonoBehaviour:
   Mafioso: {fileID: 0}
   startupObjects: {fileID: 0}
   startupArrow: {fileID: 0}
-  StunEffectPrefab: {fileID: 0}
-  BulletPrefab: {fileID: 0}
+  StunEffectPrefab: {fileID: 1768195372080122, guid: dfd99a9833f5d03418d9900550135ae2,
+    type: 2}
+  BulletPrefab: {fileID: 1564770898398704, guid: ef35618b2274e164a984e97c8910442b,
+    type: 2}
 --- !u!114 &114866898777697078
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -36,10 +36,16 @@ public class GameSystem : MonoBehaviour
     [SerializeField]
     private GameObject startupArrow;
 
+    private List<GameObject> bullets;
+    private List<AIEntity> npcs;
+    public GameObject ColliderRoot;
+    private List<BoxCollider> walls;
+
     private bool startupPhase1 = true;
     private bool startupPhase2 = true;
     private bool startupPhase3 = true;
 
+    public int MaxTaserBullets = 1;
     bool firstStart;
 
     // Use this for initialization
@@ -52,6 +58,13 @@ public class GameSystem : MonoBehaviour
         shops = new List<ShopHotspotComponent>();
         shops.AddRange(FindObjectsOfType<ShopHotspotComponent>());
         safe = FindObjectOfType<MoneySafeComponent>();
+        npcs = new List<AIEntity>();
+        walls = new List<BoxCollider>();
+        if (ColliderRoot != null)
+        {
+            walls.AddRange(ColliderRoot.GetComponentsInChildren<BoxCollider>());            
+        }
+        bullets = new List<GameObject>();
         firstStart = true;
     }
 
@@ -61,6 +74,7 @@ public class GameSystem : MonoBehaviour
         if (firstStart)
         {
             FindObjectOfType<AudioSystem>().PlaySound("Atmo_Loop");
+            npcs.AddRange(FindObjectsOfType<AIEntity>());
         }
 
         switch (CurrentGameState)
@@ -81,6 +95,7 @@ public class GameSystem : MonoBehaviour
         }
         UpdateShops();
         ProcessCops();
+        ProcessBullets();
     }
 
     void UpdateShops()
@@ -110,7 +125,7 @@ public class GameSystem : MonoBehaviour
 
             if (Mafioso.WantToCollect && shop.CurrentValue > 0)
             {
-                if (Vector3.Distance(shop.transform.position, Mafioso.gameObject.transform.position) < 15)                    
+                if (Vector3.Distance(shop.transform.position, Mafioso.gameObject.transform.position) < 15)
                 {
                     Vector3 playerPos = Mafioso.gameObject.transform.position;
                     Vector3 lookDir = shop.transform.position - playerPos;
@@ -132,7 +147,7 @@ public class GameSystem : MonoBehaviour
             }
             TextMesh text = shop.GetComponentInChildren<TextMesh>();
             if (text)
-            { 
+            {
                 text.text = shop.CurrentValue + " $";
             }
         }
@@ -178,9 +193,9 @@ public class GameSystem : MonoBehaviour
 
     private void CountDownStartTime()
     {
-        
 
-        if(this.startupTimer == 0.0f)
+
+        if (this.startupTimer == 0.0f)
         {
             this.startupObjects.SetActive(true);
         }
@@ -241,6 +256,56 @@ public class GameSystem : MonoBehaviour
         }
     }
 
+    private void ProcessBullets()
+    {
+        List<GameObject> removeMe = new List<GameObject>();
+        foreach (GameObject bullet in bullets)
+        {
+            BulletComponent bulletC = bullet.GetComponent<BulletComponent>();
+            bullet.transform.Translate(bulletC.Direction * bulletC.Speed);
+
+            bool hit = false;
+            foreach (BoxCollider collider in walls)
+            {
+                Bounds bound = new Bounds(collider.bounds.center, collider.bounds.extents);
+                bound.Expand(10);
+                if (bound.Contains(bullet.transform.position))
+                {
+                    hit = true;
+                }
+            }
+            if (!hit)
+            {
+                foreach (AIEntity npc in npcs)
+                {
+                    if (Vector3.Distance(npc.transform.position, bullet.transform.position) < 10)
+                    {
+                        hit = true;
+                        bulletC.Owner.Score -= 200;
+                        npc.CurrentSate = AIStates.Stunned;
+                        npc.ActionTimer = npc.MaxIdleTime;
+                        Instantiate(StunEffectPrefab, npc.transform.position + new Vector3(0, 0, 10), Quaternion.identity);
+                        break;
+                    }
+                }
+            }
+            if ((Mathf.Abs(bullet.transform.position.x) > 500 ||
+                 Mathf.Abs(bullet.transform.position.z) > 300))
+            {
+                hit = true;
+            }
+            if (hit)
+            {
+                removeMe.Add(bullet);
+            }
+        }
+        foreach (GameObject del in removeMe)
+        {
+            bullets.Remove(del);
+            GameObject.Destroy(del);
+        }
+    }
+
     public GameObject StunEffectPrefab;
     public GameObject BulletPrefab;
 
@@ -255,7 +320,7 @@ public class GameSystem : MonoBehaviour
                 cops.Add(cop);
             }
         }
-        
+
 
         //--
 
@@ -264,18 +329,15 @@ public class GameSystem : MonoBehaviour
             if (cop.WantToTaser)
             {
                 cop.WantToTaser = false;
-                GameObject target = cop.GetComponent<PlayerActionsComponent>().CurrentHighlightedTarget;
-                if (target != null)
+                if (bullets.Count < MaxTaserBullets)
                 {
-                    AIEntity aiTarget = target.GetComponent<AIEntity>();
-                    if (aiTarget != null)
-                    {
-                        cop.Score -= 200;
-                        aiTarget.CurrentSate = AIStates.Stunned;
-                        aiTarget.ActionTimer = aiTarget.MaxIdleTime;
-                        GameObject bullet = Instantiate(BulletPrefab, aiTarget.transform.position + (Vector3.forward * 6) , Quaternion.identity);
-                        bullet.GetComponent<BulletComponent>().Direction = cop.CurrentMovementVector.normalized;
-                    }
+                    GameObject bullet = Instantiate(BulletPrefab, cop.transform.position + (Vector3.forward * 2),new Quaternion(1, 0, 0, 1));
+                    Vector3 dir = cop.CurrentMovementVector.normalized;
+                    dir.y = -dir.y;
+                    BulletComponent bc = bullet.GetComponent<BulletComponent>();
+                    bc.Direction = dir;
+                    bc.Owner = cop;
+                    bullets.Add(bullet);
                 }
             }
         }

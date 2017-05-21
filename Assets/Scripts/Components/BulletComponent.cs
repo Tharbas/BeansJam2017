@@ -6,6 +6,7 @@ public class BulletComponent : MonoBehaviour {
 
     public float Speed = 50f;
     public Vector3 Direction;
+    public PlayerController Owner;
 
 	// Use this for initialization
 	void Start () {
