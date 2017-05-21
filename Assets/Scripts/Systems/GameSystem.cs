@@ -465,7 +465,7 @@ public class GameSystem : MonoBehaviour
                     deadEfects.Add(effect);
                 }
             }
-            foreach (GameObject effect in activeEffects)
+            foreach (GameObject effect in deadEfects)
             {
                 activeEffects.Remove(effect);
                 GameObject.Destroy(effect);
